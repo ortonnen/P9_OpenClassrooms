@@ -99,12 +99,11 @@
 		5A01077B24B5F4FC008B9063 /* Le Balluchon */ = {
 			isa = PBXGroup;
 			children = (
+				5A0107AE24B5F526008B9063 /* Controller */,
+				5A0107AD24B5F520008B9063 /* View */,
+				5A0107AC24B5F50D008B9063 /* Model */,
 				5A01077C24B5F4FC008B9063 /* AppDelegate.swift */,
 				5A01077E24B5F4FC008B9063 /* SceneDelegate.swift */,
-				5A01078024B5F4FC008B9063 /* ViewController.swift */,
-				5A01078224B5F4FC008B9063 /* Main.storyboard */,
-				5A01078524B5F501008B9063 /* Assets.xcassets */,
-				5A01078724B5F501008B9063 /* LaunchScreen.storyboard */,
 				5A01078A24B5F501008B9063 /* Info.plist */,
 			);
 			path = "Le Balluchon";
@@ -126,6 +125,31 @@
 				5A0107A024B5F501008B9063 /* Info.plist */,
 			);
 			path = "Le BalluchonUITests";
+			sourceTree = "<group>";
+		};
+		5A0107AC24B5F50D008B9063 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5A0107AD24B5F520008B9063 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5A01078224B5F4FC008B9063 /* Main.storyboard */,
+				5A01078524B5F501008B9063 /* Assets.xcassets */,
+				5A01078724B5F501008B9063 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5A0107AE24B5F526008B9063 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5A01078024B5F4FC008B9063 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJPLMV5UNX;
 				INFOPLIST_FILE = "Le Balluchon/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,6 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJPLMV5UNX;
 				INFOPLIST_FILE = "Le Balluchon/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
