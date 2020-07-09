@@ -59,7 +59,6 @@
         <!--Welcom View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="WelcomViewController" customModule="Le_Balluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -83,6 +82,9 @@
                                         <state key="normal" title="Weather">
                                             <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedWeatherButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="gTK-jG-n7p"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XC9-FV-82M">
                                         <rect key="frame" x="0.0" y="118.5" width="288" height="115"/>
@@ -90,6 +92,9 @@
                                         <state key="normal" title="Exchange">
                                             <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedExchangeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgO-Aw-HQC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlo-ax-NFl">
                                         <rect key="frame" x="0.0" y="237.5" width="288" height="114.5"/>
@@ -98,6 +103,7 @@
                                             <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="tappedTranslateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bqr-sT-m6j"/>
                                             <segue destination="tbb-JZ-R3K" kind="show" id="OPD-fZ-I35"/>
                                         </connections>
                                     </button>
@@ -117,7 +123,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="exchangeButton" destination="XC9-FV-82M" id="2Ms-5y-Eg7"/>
+                        <outlet property="translateButton" destination="mlo-ax-NFl" id="iSj-QB-rHA"/>
+                        <outlet property="weatherButton" destination="ko0-Yg-V0r" id="nLG-jW-jOg"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.75" y="115"/>
         </scene>

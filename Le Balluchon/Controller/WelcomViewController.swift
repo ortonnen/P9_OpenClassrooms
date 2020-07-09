@@ -16,6 +16,9 @@ class WelcomViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var weatherButton: UIButton!
+    @IBOutlet weak var exchangeButton: UIButton!
+    @IBOutlet weak var translateButton: UIButton!
 
     /*
     // MARK: - Navigation
@@ -26,5 +29,12 @@ class WelcomViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    @IBAction func tappedWeatherButton() {
+    }
+    @IBAction func tappedExchangeButton() {
+    }
+    @IBAction func tappedTranslateButton() {
+    }
 
 }
