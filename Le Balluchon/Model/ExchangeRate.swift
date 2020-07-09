@@ -9,5 +9,8 @@
 import Foundation
 
 struct ExchangeRate {
-    
+
+    func convertMonay() {
+        // appel reseau entrer montant à comparer
+    }
 }

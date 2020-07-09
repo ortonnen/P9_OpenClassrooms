@@ -9,5 +9,8 @@
 import Foundation
 
 struct Weather {
-    
+
+    func checkWeather() {
+        // appel reseau pour récupérer la météo du lieu choisi
+    }
 }

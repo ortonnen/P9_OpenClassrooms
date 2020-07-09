@@ -9,5 +9,8 @@
 import Foundation
 
 struct Translation {
-    
+
+    func translate() {
+        // appel reseau traduire un text ecrit
+    }
 }
