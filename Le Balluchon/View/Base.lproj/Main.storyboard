@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d2u-Ea-tWc">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -12,17 +12,46 @@
         <scene sceneID="G6u-EZ-rku">
             <objects>
                 <viewController id="tbb-JZ-R3K" customClass="TranslationViewController" customModule="Le_Balluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gx1-ux-9HA" customClass="T">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                    <view key="view" contentMode="scaleToFill" id="Gx1-ux-9HA" userLabel="View" customClass="T">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QG-cO-cXZ">
+                                <rect key="frame" x="16" y="392" width="288" height="68"/>
+                                <color key="backgroundColor" red="0.80854207280000001" green="0.85754173990000004" blue="0.64819270370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="pda-Yl-GbO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Translate">
+                                    <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Entrez votre texte..." adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUC-oG-csH">
+                                <rect key="frame" x="16" y="44" width="288" height="172"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OUC-oG-csH" secondAttribute="height" multiplier="72:43" id="xZI-bH-dfZ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OUC-oG-csH" firstAttribute="leading" secondItem="Vpw-e7-nB9" secondAttribute="leading" constant="16" id="4M4-fK-4y1"/>
+                            <constraint firstItem="6QG-cO-cXZ" firstAttribute="leading" secondItem="Vpw-e7-nB9" secondAttribute="leading" constant="16" id="4Zi-6q-e0s"/>
+                            <constraint firstItem="Vpw-e7-nB9" firstAttribute="trailing" secondItem="OUC-oG-csH" secondAttribute="trailing" constant="16" id="4wo-gr-WPc"/>
+                            <constraint firstItem="Vpw-e7-nB9" firstAttribute="bottom" secondItem="6QG-cO-cXZ" secondAttribute="bottom" constant="20" id="Ank-ds-nw9"/>
+                            <constraint firstItem="OUC-oG-csH" firstAttribute="top" secondItem="Vpw-e7-nB9" secondAttribute="top" id="K1m-6p-bnI"/>
+                            <constraint firstItem="Vpw-e7-nB9" firstAttribute="trailing" secondItem="6QG-cO-cXZ" secondAttribute="trailing" constant="16" id="yt7-Ds-n8j"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Vpw-e7-nB9"/>
                     </view>
                     <navigationItem key="navigationItem" id="pwp-73-JZR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n0f-P6-dLA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-570" y="818"/>
+            <point key="canvasLocation" x="-570" y="817.5"/>
         </scene>
         <!--Weather View Controller-->
         <scene sceneID="Z7r-Oe-MIh">
@@ -31,7 +60,7 @@
                     <view key="view" contentMode="scaleToFill" id="JN7-Ny-5JT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="7yl-Lw-mbE"/>
                     </view>
                     <navigationItem key="navigationItem" id="ryK-ch-JBe"/>
@@ -47,16 +76,25 @@
                     <view key="view" contentMode="scaleToFill" id="aco-js-4dh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="34,00" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="j06-id-Gfe">
+                                <rect key="frame" x="16" y="145" width="122" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="2yi-Ut-s3Z"/>
                     </view>
                     <navigationItem key="navigationItem" id="PQZ-lm-0CG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CQ-qn-xVU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="861" y="818"/>
+            <point key="canvasLocation" x="860.625" y="817.5"/>
         </scene>
-        <!--Welcom View Controller-->
+        <!--Welcome-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="WelcomViewController" customModule="Le_Balluchon" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +103,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Le Baluchon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Df-wX-Nzl">
-                                <rect key="frame" x="16" y="40" width="288" height="40"/>
+                                <rect key="frame" x="16" y="84" width="288" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="c5C-PK-xcq"/>
                                 </constraints>
@@ -74,37 +112,39 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Lld-fT-3hL">
-                                <rect key="frame" x="16" y="112" width="288" height="352"/>
+                                <rect key="frame" x="16" y="156" width="288" height="308"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko0-Yg-V0r">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="114.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="100"/>
                                         <color key="backgroundColor" red="0.80854207280000001" green="0.85754173990000004" blue="0.64819270370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Weather">
                                             <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="tappedWeatherButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="gTK-jG-n7p"/>
+                                            <segue destination="wgl-mn-uWz" kind="show" id="0Ql-6H-Rcv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XC9-FV-82M">
-                                        <rect key="frame" x="0.0" y="118.5" width="288" height="115"/>
+                                        <rect key="frame" x="0.0" y="104" width="288" height="100"/>
                                         <color key="backgroundColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Exchange">
                                             <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="tappedExchangeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgO-Aw-HQC"/>
+                                            <action selector="tappedExchangeButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="TEk-9q-jMI"/>
+                                            <segue destination="TiC-GC-9ZH" kind="show" id="rmp-1D-V8c"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlo-ax-NFl">
-                                        <rect key="frame" x="0.0" y="237.5" width="288" height="114.5"/>
+                                        <rect key="frame" x="0.0" y="208" width="288" height="100"/>
                                         <color key="backgroundColor" red="0.80854207280000001" green="0.85754173990000004" blue="0.64819270370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Translate">
                                             <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="tappedTranslateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bqr-sT-m6j"/>
-                                            <segue destination="tbb-JZ-R3K" kind="show" id="OPD-fZ-I35"/>
+                                            <action selector="tappedTranslateButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="j1c-d9-6iT"/>
+                                            <segue destination="tbb-JZ-R3K" kind="show" id="XU3-FD-BbN"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -123,6 +163,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Welcome" id="JCW-ns-etb"/>
                     <connections>
                         <outlet property="exchangeButton" destination="XC9-FV-82M" id="2Ms-5y-Eg7"/>
                         <outlet property="translateButton" destination="mlo-ax-NFl" id="iSj-QB-rHA"/>
@@ -131,7 +172,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.75" y="115"/>
+            <point key="canvasLocation" x="139" y="-66"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XVl-ej-tz4">
+            <objects>
+                <navigationController id="d2u-Ea-tWc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v3z-qs-joD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oPA-8E-Nt0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BeN-gH-rsp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-570" y="-66"/>
         </scene>
     </scenes>
 </document>
