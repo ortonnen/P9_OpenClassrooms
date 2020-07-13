@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d2u-Ea-tWc">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +10,7 @@
         <!--Translation View Controller-->
         <scene sceneID="G6u-EZ-rku">
             <objects>
-                <viewController id="tbb-JZ-R3K" customClass="TranslationViewController" customModule="Le_Balluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tbb-JZ-R3K" customClass="TranslationViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gx1-ux-9HA" userLabel="View" customClass="T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,15 +25,26 @@
                                 <state key="normal" title="Translate">
                                     <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedTranslateButton:" destination="tbb-JZ-R3K" eventType="touchUpInside" id="Vph-bf-S51"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Entrez votre texte..." adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUC-oG-csH">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Entrez votre texte..." adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUC-oG-csH">
                                 <rect key="frame" x="16" y="44" width="288" height="172"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OUC-oG-csH" secondAttribute="height" multiplier="72:43" id="xZI-bH-dfZ"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ebtrez texte" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1EA-fa-XaE">
+                                <rect key="frame" x="16" y="224" width="288" height="154"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -48,6 +58,10 @@
                         <viewLayoutGuide key="safeArea" id="Vpw-e7-nB9"/>
                     </view>
                     <navigationItem key="navigationItem" id="pwp-73-JZR"/>
+                    <connections>
+                        <outlet property="textToTranslateView" destination="OUC-oG-csH" id="htv-NZ-ER4"/>
+                        <outlet property="translateButton" destination="6QG-cO-cXZ" id="76a-Ct-3yS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n0f-P6-dLA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,7 +70,7 @@
         <!--Weather View Controller-->
         <scene sceneID="Z7r-Oe-MIh">
             <objects>
-                <viewController id="wgl-mn-uWz" customClass="WeatherViewController" customModule="Le_Balluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wgl-mn-uWz" customClass="WeatherViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JN7-Ny-5JT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,23 +86,90 @@
         <!--Exchange Rate View Controller-->
         <scene sceneID="pzZ-ih-KRt">
             <objects>
-                <viewController id="TiC-GC-9ZH" customClass="ExchangeRateViewController" customModule="Le_Balluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TiC-GC-9ZH" customClass="ExchangeRateViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aco-js-4dh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="34,00" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="j06-id-Gfe">
-                                <rect key="frame" x="16" y="145" width="122" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhD-Kc-OQl">
+                                <rect key="frame" x="16" y="196" width="132" height="88"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="34,00" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="j06-id-Gfe">
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="88"/>
+                                        <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="writeMonayText" destination="TiC-GC-9ZH" eventType="editingDidEnd" id="iJ0-YY-w3X"/>
+                                        </connections>
+                                    </textField>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8hx-Vi-rx7">
+                                        <rect key="frame" x="82" y="0.0" width="50" height="88"/>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="IgJ-9u-9Na"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="NUj-js-nxO"/>
+                                    </scrollView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZhD-Kc-OQl" secondAttribute="height" multiplier="3:2" id="dYe-rs-xwL"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-Ls-BFL">
+                                <rect key="frame" x="16" y="392" width="288" height="68"/>
+                                <color key="backgroundColor" red="0.80854207280000001" green="0.85754173990000004" blue="0.64819270370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="rvQ-8z-j3Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Convert">
+                                    <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedConvertButton" destination="TiC-GC-9ZH" eventType="touchUpInside" id="zAO-GN-43P"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-Bo-Ln1">
+                                <rect key="frame" x="172" y="196" width="132" height="88"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWP-ks-klX">
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="88"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O0r-lS-Ykd">
+                                        <rect key="frame" x="82" y="0.0" width="50" height="88"/>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="05O-ta-H3Y"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="CMB-sn-9QN"/>
+                                    </scrollView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="YWP-ks-klX" firstAttribute="centerY" secondItem="LfR-Bo-Ln1" secondAttribute="centerY" id="L14-Ph-5M2"/>
+                                    <constraint firstAttribute="width" secondItem="LfR-Bo-Ln1" secondAttribute="height" multiplier="3:2" id="dF5-Ph-d0B"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LfR-Bo-Ln1" firstAttribute="bottom" secondItem="ZhD-Kc-OQl" secondAttribute="bottom" id="0tC-5Q-mYJ"/>
+                            <constraint firstItem="LfR-Bo-Ln1" firstAttribute="top" secondItem="2yi-Ut-s3Z" secondAttribute="top" constant="152" id="3Va-Cd-lpm"/>
+                            <constraint firstItem="2yi-Ut-s3Z" firstAttribute="bottom" secondItem="DTL-Ls-BFL" secondAttribute="bottom" constant="20" id="9WX-a0-DKc"/>
+                            <constraint firstItem="DTL-Ls-BFL" firstAttribute="leading" secondItem="2yi-Ut-s3Z" secondAttribute="leading" constant="16" id="9fC-tR-bFf"/>
+                            <constraint firstItem="LfR-Bo-Ln1" firstAttribute="trailing" secondItem="DTL-Ls-BFL" secondAttribute="trailing" id="BFj-PR-54Z"/>
+                            <constraint firstItem="LfR-Bo-Ln1" firstAttribute="leading" secondItem="aco-js-4dh" secondAttribute="leading" constant="172" id="CGh-3a-i0s"/>
+                            <constraint firstItem="LfR-Bo-Ln1" firstAttribute="top" secondItem="ZhD-Kc-OQl" secondAttribute="top" id="HET-ji-5lB"/>
+                            <constraint firstItem="2yi-Ut-s3Z" firstAttribute="trailing" secondItem="DTL-Ls-BFL" secondAttribute="trailing" constant="16" id="IMN-ek-tJo"/>
+                            <constraint firstItem="ZhD-Kc-OQl" firstAttribute="centerY" secondItem="aco-js-4dh" secondAttribute="centerY" id="J2P-Eu-gsN"/>
+                            <constraint firstItem="ZhD-Kc-OQl" firstAttribute="leading" secondItem="DTL-Ls-BFL" secondAttribute="leading" id="K2x-OP-vrq"/>
+                            <constraint firstItem="2yi-Ut-s3Z" firstAttribute="trailing" secondItem="LfR-Bo-Ln1" secondAttribute="trailing" constant="16" id="nAc-8D-WZi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2yi-Ut-s3Z"/>
                     </view>
                     <navigationItem key="navigationItem" id="PQZ-lm-0CG"/>
+                    <connections>
+                        <outlet property="convertButton" destination="DTL-Ls-BFL" id="283-3J-hFH"/>
+                        <outlet property="convertResultLabel" destination="YWP-ks-klX" id="4n3-9f-p0F"/>
+                        <outlet property="monayEnterText" destination="j06-id-Gfe" id="7He-WI-6V3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CQ-qn-xVU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,7 +178,7 @@
         <!--Welcome-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WelcomViewController" customModule="Le_Balluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +260,7 @@
             <objects>
                 <navigationController id="d2u-Ea-tWc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v3z-qs-joD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
