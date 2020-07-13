@@ -1,6 +1,6 @@
 //
 //  TranslationViewController.swift
-//  Le Balluchon
+//  Le Baluchon
 //
 //  Created by Nathalie Ortonne on 08/07/2020.
 //  Copyright © 2020 Nathalie Ortonne. All rights reserved.
@@ -16,7 +16,9 @@ class TranslationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var textToTranslateView: UITextField!
 
+    @IBOutlet weak var translateButton: UIButton!
     /*
     // MARK: - Navigation
 
@@ -27,4 +29,6 @@ class TranslationViewController: UIViewController {
     }
     */
 
+    @IBAction func tappedTranslateButton(_ sender: Any) {
+    }
 }

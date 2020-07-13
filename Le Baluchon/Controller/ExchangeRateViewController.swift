@@ -15,7 +15,7 @@ class ExchangeRateViewController: UIViewController {
 
     @IBOutlet weak var convertButton: UIButton!
     @IBOutlet weak var convertResultLabel: UILabel!
-    @IBOutlet weak var monayEnterText: UITextField!
+    @IBOutlet weak var monayEnterText: UITextField!//change name of outlet
 
 
     override func viewDidLoad() {
@@ -26,12 +26,14 @@ class ExchangeRateViewController: UIViewController {
 
     @IBAction func tappedConvertButton() {
 
-        amountConvert = String(exchangeRate.convertMonay(with: amount))
+        amountConvert = String(exchangeRate.convertMoney(with: amount))
         convertResultLabel.text = amountConvert
     }
 
-    @IBAction func writeMonayText() {
-
+    //change action name
+    @IBAction func writeMoneyText(_ sender: Any) {
+        amount = sender as! Float
     }
+
 }
 

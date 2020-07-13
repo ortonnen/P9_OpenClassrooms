@@ -10,11 +10,11 @@ import Foundation
 
 struct ExchangeRate {
 
-    func convertMonay(with monay: Float) -> Float {
-        var convertMonayResult: Float
+    func convertMoney(with money: Float) -> Float {
+        var convertMoneyResult: Float
 
-        convertMonayResult = monay * 1.13215
-        return convertMonayResult
+        convertMoneyResult = money * 1.13215
+        return convertMoneyResult
     }
 
     private func exchangeService() {

@@ -1,6 +1,6 @@
 //
-//  WelcomViewController.swift
-//  Le Balluchon
+//  WeatherViewController.swift
+//  Le Baluchon
 //
 //  Created by Nathalie Ortonne on 08/07/2020.
 //  Copyright © 2020 Nathalie Ortonne. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomViewController: UIViewController {
+class WeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,9 +16,6 @@ class WelcomViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var weatherButton: UIButton!
-    @IBOutlet weak var exchangeButton: UIButton!
-    @IBOutlet weak var translateButton: UIButton!
 
     /*
     // MARK: - Navigation
@@ -29,12 +26,5 @@ class WelcomViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-    @IBAction func tappedWeatherButton() {
-    }
-    @IBAction func tappedExchangeButton() {
-    }
-    @IBAction func tappedTranslateButton() {
-    }
 
 }
