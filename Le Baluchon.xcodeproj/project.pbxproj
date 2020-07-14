@@ -12,16 +12,18 @@
 		5A01078424B5F4FC008B9063 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A01078224B5F4FC008B9063 /* Main.storyboard */; };
 		5A01078624B5F501008B9063 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A01078524B5F501008B9063 /* Assets.xcassets */; };
 		5A01078924B5F501008B9063 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A01078724B5F501008B9063 /* LaunchScreen.storyboard */; };
-		5A01079424B5F501008B9063 /* Le_BalluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01079324B5F501008B9063 /* Le_BalluchonTests.swift */; };
 		5A01079F24B5F501008B9063 /* Le_BalluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A01079E24B5F501008B9063 /* Le_BalluchonUITests.swift */; };
 		5A0107B024B5F6DA008B9063 /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0107AF24B5F6DA008B9063 /* ExchangeRateViewController.swift */; };
 		5A0107B224B5F711008B9063 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0107B124B5F711008B9063 /* TranslationViewController.swift */; };
 		5A0107B424B5F734008B9063 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0107B324B5F734008B9063 /* WeatherViewController.swift */; };
 		5A0107B624B5F769008B9063 /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0107B524B5F769008B9063 /* WelcomViewController.swift */; };
 		5A0107B824B5F796008B9063 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0107B724B5F796008B9063 /* Weather.swift */; };
-		5A0107BA24B5F7B1008B9063 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0107B924B5F7B1008B9063 /* ExchangeRate.swift */; };
+		5A0107BA24B5F7B1008B9063 /* CurrencyRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0107B924B5F7B1008B9063 /* CurrencyRate.swift */; };
 		5A0107BC24B5F7CD008B9063 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0107BB24B5F7CD008B9063 /* Translation.swift */; };
 		5AADD8C924B7469500227CDC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AADD8C824B7469500227CDC /* Default-568h@2x.png */; };
+		5AADD8CB24BCA2EB00227CDC /* CurrencyRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADD8CA24BCA2EB00227CDC /* CurrencyRateService.swift */; };
+		5AADD8CD24BDAD0500227CDC /* CurrencyRateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADD8CC24BDAD0500227CDC /* CurrencyRateTest.swift */; };
+		5AADD8CF24BDADA200227CDC /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADD8CE24BDADA200227CDC /* FakeResponseData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,6 @@
 		5A01078824B5F501008B9063 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A01078A24B5F501008B9063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A01078F24B5F501008B9063 /* Le BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le BaluchonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A01079324B5F501008B9063 /* Le_BalluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BalluchonTests.swift; sourceTree = "<group>"; };
 		5A01079524B5F501008B9063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A01079A24B5F501008B9063 /* Le BaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le BaluchonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A01079E24B5F501008B9063 /* Le_BalluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BalluchonUITests.swift; sourceTree = "<group>"; };
@@ -60,9 +61,12 @@
 		5A0107B324B5F734008B9063 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		5A0107B524B5F769008B9063 /* WelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
 		5A0107B724B5F796008B9063 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		5A0107B924B5F7B1008B9063 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		5A0107B924B5F7B1008B9063 /* CurrencyRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRate.swift; sourceTree = "<group>"; };
 		5A0107BB24B5F7CD008B9063 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		5AADD8C824B7469500227CDC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5AADD8CA24BCA2EB00227CDC /* CurrencyRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateService.swift; sourceTree = "<group>"; };
+		5AADD8CC24BDAD0500227CDC /* CurrencyRateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateTest.swift; sourceTree = "<group>"; };
+		5AADD8CE24BDADA200227CDC /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +131,9 @@
 		5A01079224B5F501008B9063 /* Le BaluchonTests */ = {
 			isa = PBXGroup;
 			children = (
-				5A01079324B5F501008B9063 /* Le_BalluchonTests.swift */,
+				5AADD8CC24BDAD0500227CDC /* CurrencyRateTest.swift */,
 				5A01079524B5F501008B9063 /* Info.plist */,
+				5AADD8CE24BDADA200227CDC /* FakeResponseData.swift */,
 			);
 			path = "Le BaluchonTests";
 			sourceTree = "<group>";
@@ -146,8 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				5A0107B724B5F796008B9063 /* Weather.swift */,
-				5A0107B924B5F7B1008B9063 /* ExchangeRate.swift */,
+				5A0107B924B5F7B1008B9063 /* CurrencyRate.swift */,
 				5A0107BB24B5F7CD008B9063 /* Translation.swift */,
+				5AADD8CA24BCA2EB00227CDC /* CurrencyRateService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,6 +250,7 @@
 					};
 					5A01078E24B5F501008B9063 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 						TestTargetID = 5A01077824B5F4FC008B9063;
 					};
 					5A01079924B5F501008B9063 = {
@@ -305,12 +312,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AADD8CB24BCA2EB00227CDC /* CurrencyRateService.swift in Sources */,
 				5A0107B224B5F711008B9063 /* TranslationViewController.swift in Sources */,
 				5A0107B424B5F734008B9063 /* WeatherViewController.swift in Sources */,
 				5A0107BC24B5F7CD008B9063 /* Translation.swift in Sources */,
 				5A0107B024B5F6DA008B9063 /* ExchangeRateViewController.swift in Sources */,
 				5A01077D24B5F4FC008B9063 /* AppDelegate.swift in Sources */,
-				5A0107BA24B5F7B1008B9063 /* ExchangeRate.swift in Sources */,
+				5A0107BA24B5F7B1008B9063 /* CurrencyRate.swift in Sources */,
 				5A01077F24B5F4FC008B9063 /* SceneDelegate.swift in Sources */,
 				5A0107B624B5F769008B9063 /* WelcomViewController.swift in Sources */,
 				5A0107B824B5F796008B9063 /* Weather.swift in Sources */,
@@ -321,7 +329,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A01079424B5F501008B9063 /* Le_BalluchonTests.swift in Sources */,
+				5AADD8CF24BDADA200227CDC /* FakeResponseData.swift in Sources */,
+				5AADD8CD24BDAD0500227CDC /* CurrencyRateTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +534,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJPLMV5UNX;
 				INFOPLIST_FILE = "Le BalluchonTests/Info.plist";
@@ -536,6 +546,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.nathalieortonne.Le-BalluchonTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Le Baluchon.app/Le Baluchon";
@@ -547,6 +558,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJPLMV5UNX;
 				INFOPLIST_FILE = "Le BalluchonTests/Info.plist";
