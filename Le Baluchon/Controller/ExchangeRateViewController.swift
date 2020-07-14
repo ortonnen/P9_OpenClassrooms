@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExchangeRateViewController: UIViewController {
+class ExchangeRateViewController: UIViewController, UITextFieldDelegate {
     var exchangeRate = ExchangeRate()
     var amount = Float()
     var amountConvert = String()
@@ -30,9 +30,10 @@ class ExchangeRateViewController: UIViewController {
         convertResultLabel.text = amountConvert
     }
 
-    //change action name
-    @IBAction func writeMoneyText(_ sender: Any) {
-        amount = sender as! Float
+
+
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        monayEnterText.resignFirstResponder()
     }
 
 }
