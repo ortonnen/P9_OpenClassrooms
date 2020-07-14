@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Weather {
+struct Weather: Decodable {
 
-    func checkWeather() {
-        // appel reseau pour récupérer la météo du lieu choisi
-    }
+    var id: Int
+    var main: String
+    var description: String
 }
