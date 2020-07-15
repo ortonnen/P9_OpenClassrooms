@@ -14,4 +14,5 @@ struct CurrencyRate: Decodable {
     var timestamp: Int
     var date: String
     var rates: [String: Double]
+
 }

@@ -115,7 +115,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="140"/>
                                                 <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="continue"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="continue"/>
                                             </textField>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpk-qA-YLI">
                                                 <rect key="frame" x="152" y="0.0" width="136" height="140"/>
@@ -175,7 +175,7 @@
                     <connections>
                         <outlet property="convertButton" destination="DTL-Ls-BFL" id="283-3J-hFH"/>
                         <outlet property="convertResultLabel" destination="YWP-ks-klX" id="4n3-9f-p0F"/>
-                        <outlet property="endingCurrencyPickerView" destination="B4n-pU-jRk" id="Z3W-G0-NVg"/>
+                        <outlet property="endingCurrencyPickerView" destination="B4n-pU-jRk" id="prg-yr-sGK"/>
                         <outlet property="monayEnterText" destination="j06-id-Gfe" id="7He-WI-6V3"/>
                         <outlet property="startingCurrencyPickerView" destination="cpk-qA-YLI" id="TRM-FN-AKo"/>
                     </connections>

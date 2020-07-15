@@ -17,7 +17,7 @@ class CurrencyRateService {
     private var currencyRateSession = URLSession(configuration: .default)
     private var task: URLSessionDataTask?
 
-    var convertMoneyResult = Double()
+    private var exchangeRate: Double = 0
 
     init(currencyRateSession: URLSession){
         self.currencyRateSession = currencyRateSession
@@ -39,6 +39,7 @@ class CurrencyRateService {
                     callback(false, nil)
                     return
                 }
+                self.exchangeRate = currency.rates["USD"] ?? 0
                 callback(true, currency)
             }
         }
@@ -53,8 +54,14 @@ class CurrencyRateService {
     }
 
     func convertMoney(with money: Double) -> Double {
-
-        convertMoneyResult = money * 1.13215
+        var convertMoneyResult = Double()
+        getCurrencyRate { (success, currency) in
+            guard self.exchangeRate != 0 else {
+                print ("error")
+                return
+            }
+        }
+        convertMoneyResult = money * exchangeRate
         return convertMoneyResult
     }
 

@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="icone" translatesAutoresizingMaskIntoConstraints="NO" id="P8g-LN-l2q">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Le Baluchon" translatesAutoresizingMaskIntoConstraints="NO" id="P8g-LN-l2q">
                                 <rect key="frame" x="16" y="0.0" width="288" height="480"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Le Baluchon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOY-hg-Pqt">
@@ -45,6 +45,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icone" width="1098" height="1098"/>
+        <image name="Le Baluchon" width="1098" height="1098"/>
     </resources>
 </document>
