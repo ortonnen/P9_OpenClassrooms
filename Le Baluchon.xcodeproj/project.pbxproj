@@ -24,6 +24,8 @@
 		5AADD8CB24BCA2EB00227CDC /* CurrencyRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADD8CA24BCA2EB00227CDC /* CurrencyRateService.swift */; };
 		5AADD8CD24BDAD0500227CDC /* CurrencyRateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADD8CC24BDAD0500227CDC /* CurrencyRateTest.swift */; };
 		5AADD8CF24BDADA200227CDC /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADD8CE24BDADA200227CDC /* FakeResponseData.swift */; };
+		5AADD8D124BDD00300227CDC /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADD8D024BDD00300227CDC /* WeatherService.swift */; };
+		5AADD8D324BDD36200227CDC /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADD8D224BDD36200227CDC /* WeatherTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		5AADD8CA24BCA2EB00227CDC /* CurrencyRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateService.swift; sourceTree = "<group>"; };
 		5AADD8CC24BDAD0500227CDC /* CurrencyRateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateTest.swift; sourceTree = "<group>"; };
 		5AADD8CE24BDADA200227CDC /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		5AADD8D024BDD00300227CDC /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		5AADD8D224BDD36200227CDC /* WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 				5AADD8CC24BDAD0500227CDC /* CurrencyRateTest.swift */,
 				5A01079524B5F501008B9063 /* Info.plist */,
 				5AADD8CE24BDADA200227CDC /* FakeResponseData.swift */,
+				5AADD8D224BDD36200227CDC /* WeatherTests.swift */,
 			);
 			path = "Le BaluchonTests";
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 				5A0107B924B5F7B1008B9063 /* CurrencyRate.swift */,
 				5A0107BB24B5F7CD008B9063 /* Translation.swift */,
 				5AADD8CA24BCA2EB00227CDC /* CurrencyRateService.swift */,
+				5AADD8D024BDD00300227CDC /* WeatherService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 			files = (
 				5AADD8CB24BCA2EB00227CDC /* CurrencyRateService.swift in Sources */,
 				5A0107B224B5F711008B9063 /* TranslationViewController.swift in Sources */,
+				5AADD8D124BDD00300227CDC /* WeatherService.swift in Sources */,
 				5A0107B424B5F734008B9063 /* WeatherViewController.swift in Sources */,
 				5A0107BC24B5F7CD008B9063 /* Translation.swift in Sources */,
 				5A0107B024B5F6DA008B9063 /* ExchangeRateViewController.swift in Sources */,
@@ -331,6 +338,7 @@
 			files = (
 				5AADD8CF24BDADA200227CDC /* FakeResponseData.swift in Sources */,
 				5AADD8CD24BDAD0500227CDC /* CurrencyRateTest.swift in Sources */,
+				5AADD8D324BDD36200227CDC /* WeatherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

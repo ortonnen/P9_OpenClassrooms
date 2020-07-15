@@ -102,9 +102,6 @@
                                                 <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                                <connections>
-                                                    <action selector="writeMoneyText:" destination="TiC-GC-9ZH" eventType="editingDidEnd" id="ikP-rT-MdH"/>
-                                                </connections>
                                             </textField>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8hx-Vi-rx7">
                                                 <rect key="frame" x="152" y="0.0" width="136" height="80"/>
@@ -147,6 +144,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="gJE-PP-XkR" firstAttribute="centerX" secondItem="aco-js-4dh" secondAttribute="centerX" id="6W6-ms-BK9"/>
                             <constraint firstItem="2yi-Ut-s3Z" firstAttribute="bottom" secondItem="DTL-Ls-BFL" secondAttribute="bottom" constant="20" id="9WX-a0-DKc"/>
@@ -155,6 +153,9 @@
                             <constraint firstItem="gJE-PP-XkR" firstAttribute="centerY" secondItem="aco-js-4dh" secondAttribute="centerY" id="PuN-Uv-E09"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2yi-Ut-s3Z"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dBA-w6-GWb" appends="YES" id="MPg-zU-aiK"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="PQZ-lm-0CG"/>
                     <connections>
@@ -164,6 +165,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CQ-qn-xVU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dBA-w6-GWb">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="TiC-GC-9ZH" id="Oex-vH-czw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="860.625" y="817.5"/>
         </scene>
@@ -252,7 +258,7 @@
             <objects>
                 <navigationController id="d2u-Ea-tWc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v3z-qs-joD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -9,7 +9,6 @@
 import UIKit
 
 class ExchangeRateViewController: UIViewController, UITextFieldDelegate {
-    var exchangeRate = ExchangeRate()
     var amount = Float()
     var amountConvert = String()
 
@@ -26,11 +25,9 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func tappedConvertButton() {
 
-        amountConvert = String(exchangeRate.convertMoney(with: amount))
+        amountConvert = String(CurrencyRateService.shared.convertMoney(with: amount))
         convertResultLabel.text = amountConvert
     }
-
-
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         monayEnterText.resignFirstResponder()
