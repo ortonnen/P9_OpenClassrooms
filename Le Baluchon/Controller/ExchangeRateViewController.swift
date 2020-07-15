@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate {
+class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var convertButton: UIButton!
     @IBOutlet weak var convertResultLabel: UILabel!

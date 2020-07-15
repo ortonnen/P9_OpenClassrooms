@@ -91,39 +91,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="gJE-PP-XkR" userLabel="TextView">
-                                <rect key="frame" x="16" y="2" width="288" height="476"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZhD-Kc-OQl" userLabel="writeStackView">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="216"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00,00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j06-id-Gfe">
-                                                <rect key="frame" x="0.0" y="0.0" width="136" height="216"/>
-                                                <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="continue"/>
-                                            </textField>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpk-qA-YLI">
-                                                <rect key="frame" x="152" y="0.0" width="136" height="216"/>
-                                            </pickerView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-Bo-Ln1" userLabel="convertStackView">
-                                        <rect key="frame" x="0.0" y="260" width="288" height="216"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWP-ks-klX">
-                                                <rect key="frame" x="0.0" y="0.0" width="136" height="216"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4n-pU-jRk">
-                                                <rect key="frame" x="152" y="0.0" width="136" height="216"/>
-                                            </pickerView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-Ls-BFL">
                                 <rect key="frame" x="16" y="392" width="288" height="68"/>
                                 <color key="backgroundColor" red="0.80854207280000001" green="0.85754173990000004" blue="0.64819270370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -138,6 +105,55 @@
                                     <action selector="tappedConvertButton" destination="TiC-GC-9ZH" eventType="touchUpInside" id="zAO-GN-43P"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gJE-PP-XkR" userLabel="TextView">
+                                <rect key="frame" x="16" y="99" width="288" height="282"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZhD-Kc-OQl" userLabel="writeStackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="140"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j06-id-Gfe">
+                                                <rect key="frame" x="0.0" y="0.0" width="136" height="140"/>
+                                                <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="continue"/>
+                                            </textField>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpk-qA-YLI">
+                                                <rect key="frame" x="152" y="0.0" width="136" height="140"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="140" id="1oR-uy-7rZ"/>
+                                                </constraints>
+                                            </pickerView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="cpk-qA-YLI" secondAttribute="trailing" id="JsC-L2-1iz"/>
+                                            <constraint firstAttribute="bottom" secondItem="cpk-qA-YLI" secondAttribute="bottom" id="P8A-CX-qbU"/>
+                                            <constraint firstItem="cpk-qA-YLI" firstAttribute="top" secondItem="ZhD-Kc-OQl" secondAttribute="top" id="z3A-Te-ikY"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-Bo-Ln1" userLabel="convertStackView">
+                                        <rect key="frame" x="0.0" y="142" width="288" height="140"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWP-ks-klX">
+                                                <rect key="frame" x="0.0" y="0.0" width="136" height="140"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4n-pU-jRk">
+                                                <rect key="frame" x="152" y="0.0" width="136" height="140"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="140" id="UGB-eR-c7e"/>
+                                                </constraints>
+                                            </pickerView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="B4n-pU-jRk" secondAttribute="trailing" id="MTS-Ql-V2H"/>
+                                            <constraint firstAttribute="bottom" secondItem="B4n-pU-jRk" secondAttribute="bottom" id="f6B-e1-z0n"/>
+                                            <constraint firstItem="B4n-pU-jRk" firstAttribute="top" secondItem="LfR-Bo-Ln1" secondAttribute="top" id="or3-O2-F34"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -182,7 +198,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Le Baluchon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Df-wX-Nzl">
-                                <rect key="frame" x="16" y="84" width="288" height="40"/>
+                                <rect key="frame" x="97" y="84" width="126.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="c5C-PK-xcq"/>
                                 </constraints>
@@ -231,12 +247,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Df-wX-Nzl" secondAttribute="trailing" constant="16" id="9Aa-8l-J5Q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lld-fT-3hL" secondAttribute="bottom" constant="16" id="CNy-27-Cuo"/>
                             <constraint firstItem="Lld-fT-3hL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="JQB-5v-xL5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lld-fT-3hL" secondAttribute="trailing" constant="16" id="MG1-Bj-VG8"/>
                             <constraint firstItem="Lld-fT-3hL" firstAttribute="top" secondItem="1Df-wX-Nzl" secondAttribute="bottom" constant="32" id="cRN-cd-rlf"/>
-                            <constraint firstItem="1Df-wX-Nzl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="kO7-74-nHf"/>
                             <constraint firstItem="1Df-wX-Nzl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="pct-Bg-h5W"/>
                             <constraint firstItem="1Df-wX-Nzl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vca-rJ-eAe"/>
                         </constraints>

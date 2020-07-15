@@ -8,4 +8,7 @@
 
 import Foundation
 
-let currencies = ["Euro","Dollards","Livre","Yen"]
+let currencies = ["Euro",
+                  "Dollards",
+                  "Livre",
+                  "Yen"]
