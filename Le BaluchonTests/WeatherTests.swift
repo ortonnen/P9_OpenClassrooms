@@ -1,5 +1,5 @@
 //
-//  CurrencyRateTest.swift
+//  WeatherTests.swift
 //  Le BaluchonTests
 //
 //  Created by Nathalie Ortonne on 14/07/2020.
@@ -8,11 +8,11 @@
 
 import XCTest
 
-class CurrencyRateTest: XCTestCase {
+class WeatherTests: XCTestCase {
 
     func testGetCurrencyRateShouldPostFailedCallbackIfError() {
         // Given
-        let currencyService = CurrencyRateService()
+        let weatherService = WeatherService()
         //        let quoteService = QuoteService(
         //            quoteSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData().error),
         //            imageSession: URLSessionFake(data: nil, response: nil, error: nil))
@@ -30,4 +30,5 @@ class CurrencyRateTest: XCTestCase {
         //    }
 
     }
+
 }
