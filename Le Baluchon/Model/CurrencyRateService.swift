@@ -17,9 +17,10 @@ class CurrencyRateService {
     private var currencyRateSession = URLSession(configuration: .default)
     private var task: URLSessionDataTask?
 
+    var convertMoneyResult = Double()
+
     init(currencyRateSession: URLSession){
         self.currencyRateSession = currencyRateSession
-
     }
 
     func getCurrencyRate(callback: @escaping (Bool, CurrencyRate?) -> Void) {
@@ -51,8 +52,7 @@ class CurrencyRateService {
         return component!
     }
 
-    func convertMoney(with money: Float) -> Float {
-        var convertMoneyResult: Float
+    func convertMoney(with money: Double) -> Double {
 
         convertMoneyResult = money * 1.13215
         return convertMoneyResult
