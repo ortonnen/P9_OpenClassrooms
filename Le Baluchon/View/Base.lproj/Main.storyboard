@@ -30,10 +30,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Entrez votre texte..." adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OUC-oG-csH">
-                                <rect key="frame" x="16" y="44" width="288" height="172"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OUC-oG-csH" secondAttribute="height" multiplier="72:43" id="xZI-bH-dfZ"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="44" width="288" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
@@ -102,7 +99,7 @@
                                     <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="tappedConvertButton" destination="TiC-GC-9ZH" eventType="touchUpInside" id="zAO-GN-43P"/>
+                                    <action selector="tappedConvertButton" destination="TiC-GC-9ZH" eventType="touchUpInside" id="AHe-Re-PTS"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gJE-PP-XkR" userLabel="TextView">
@@ -117,18 +114,13 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="continue"/>
                                             </textField>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpk-qA-YLI">
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGS-ug-YeH">
                                                 <rect key="frame" x="152" y="0.0" width="136" height="140"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="140" id="1oR-uy-7rZ"/>
+                                                    <constraint firstAttribute="height" constant="140" id="4Ta-Wq-LVk"/>
                                                 </constraints>
                                             </pickerView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="cpk-qA-YLI" secondAttribute="trailing" id="JsC-L2-1iz"/>
-                                            <constraint firstAttribute="bottom" secondItem="cpk-qA-YLI" secondAttribute="bottom" id="P8A-CX-qbU"/>
-                                            <constraint firstItem="cpk-qA-YLI" firstAttribute="top" secondItem="ZhD-Kc-OQl" secondAttribute="top" id="z3A-Te-ikY"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-Bo-Ln1" userLabel="convertStackView">
                                         <rect key="frame" x="0.0" y="142" width="288" height="140"/>
@@ -154,6 +146,9 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="22M-3Q-Tw1">
+                                <rect key="frame" x="150" y="416" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -163,8 +158,11 @@
                             <constraint firstItem="DTL-Ls-BFL" firstAttribute="leading" secondItem="2yi-Ut-s3Z" secondAttribute="leading" constant="16" id="9fC-tR-bFf"/>
                             <constraint firstItem="2yi-Ut-s3Z" firstAttribute="trailing" secondItem="DTL-Ls-BFL" secondAttribute="trailing" constant="16" id="IMN-ek-tJo"/>
                             <constraint firstItem="gJE-PP-XkR" firstAttribute="centerY" secondItem="aco-js-4dh" secondAttribute="centerY" id="PuN-Uv-E09"/>
+                            <constraint firstItem="22M-3Q-Tw1" firstAttribute="centerX" secondItem="DTL-Ls-BFL" secondAttribute="centerX" id="SZY-Fg-vFU"/>
+                            <constraint firstItem="22M-3Q-Tw1" firstAttribute="centerX" secondItem="aco-js-4dh" secondAttribute="centerX" id="b1I-rp-QBo"/>
                             <constraint firstItem="gJE-PP-XkR" firstAttribute="leading" secondItem="2yi-Ut-s3Z" secondAttribute="leading" constant="16" id="bgE-D4-DLm"/>
                             <constraint firstItem="2yi-Ut-s3Z" firstAttribute="trailing" secondItem="gJE-PP-XkR" secondAttribute="trailing" constant="16" id="ciX-FI-gJ7"/>
+                            <constraint firstItem="22M-3Q-Tw1" firstAttribute="centerY" secondItem="DTL-Ls-BFL" secondAttribute="centerY" id="nrc-FH-efK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2yi-Ut-s3Z"/>
                         <connections>
@@ -173,17 +171,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="PQZ-lm-0CG"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="22M-3Q-Tw1" id="9th-Rm-Mkd"/>
                         <outlet property="convertButton" destination="DTL-Ls-BFL" id="283-3J-hFH"/>
                         <outlet property="convertResultLabel" destination="YWP-ks-klX" id="4n3-9f-p0F"/>
                         <outlet property="endingCurrencyPickerView" destination="B4n-pU-jRk" id="prg-yr-sGK"/>
-                        <outlet property="monayEnterText" destination="j06-id-Gfe" id="7He-WI-6V3"/>
-                        <outlet property="startingCurrencyPickerView" destination="cpk-qA-YLI" id="TRM-FN-AKo"/>
+                        <outlet property="moneyEnterText" destination="j06-id-Gfe" id="LKg-Vb-dcG"/>
+                        <outlet property="startingCurrencyPickerView" destination="nGS-ug-YeH" id="SiN-iw-gSZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CQ-qn-xVU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="dBA-w6-GWb">
                     <connections>
-                        <action selector="dismissKeyboard:" destination="TiC-GC-9ZH" id="Oex-vH-czw"/>
+                        <action selector="dismissKeyboard:" destination="TiC-GC-9ZH" id="HVT-7Q-q8B"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -272,7 +271,7 @@
             <objects>
                 <navigationController id="d2u-Ea-tWc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v3z-qs-joD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

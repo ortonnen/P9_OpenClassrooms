@@ -17,8 +17,6 @@ class CurrencyRateService {
     private var currencyRateSession = URLSession(configuration: .default)
     private var task: URLSessionDataTask?
 
-    private var exchangeRate: Double = 0
-
     init(currencyRateSession: URLSession){
         self.currencyRateSession = currencyRateSession
     }
@@ -39,7 +37,6 @@ class CurrencyRateService {
                     callback(false, nil)
                     return
                 }
-                self.exchangeRate = currency.rates["USD"] ?? 0
                 callback(true, currency)
             }
         }
@@ -51,18 +48,6 @@ class CurrencyRateService {
 
         component?.queryItems = [URLQueryItem(name: "access_key", value: "6c7bb1f08a9dedd75e83976470ca57c6")]
         return component!
-    }
-
-    func convertMoney(with money: Double) -> Double {
-        var convertMoneyResult = Double()
-        getCurrencyRate { (success, currency) in
-            guard self.exchangeRate != 0 else {
-                print ("error")
-                return
-            }
-        }
-        convertMoneyResult = money * exchangeRate
-        return convertMoneyResult
     }
 
 }
