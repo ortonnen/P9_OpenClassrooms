@@ -110,17 +110,25 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j06-id-Gfe">
                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="140"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="136" id="Yy0-xk-9zR"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="136" id="qUh-0f-DAG"/>
+                                                </constraints>
                                                 <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="continue"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="continue"/>
                                             </textField>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGS-ug-YeH">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zep-qr-V6h">
                                                 <rect key="frame" x="152" y="0.0" width="136" height="140"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="140" id="4Ta-Wq-LVk"/>
-                                                </constraints>
-                                            </pickerView>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="140" id="diP-XL-8gt"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="140" id="g5i-Mo-DGZ"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LfR-Bo-Ln1" userLabel="convertStackView">
                                         <rect key="frame" x="0.0" y="142" width="288" height="140"/>
@@ -142,11 +150,12 @@
                                             <constraint firstAttribute="trailing" secondItem="B4n-pU-jRk" secondAttribute="trailing" id="MTS-Ql-V2H"/>
                                             <constraint firstAttribute="bottom" secondItem="B4n-pU-jRk" secondAttribute="bottom" id="f6B-e1-z0n"/>
                                             <constraint firstItem="B4n-pU-jRk" firstAttribute="top" secondItem="LfR-Bo-Ln1" secondAttribute="top" id="or3-O2-F34"/>
+                                            <constraint firstAttribute="width" constant="288" id="sxx-0C-lbc"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="22M-3Q-Tw1">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="22M-3Q-Tw1">
                                 <rect key="frame" x="150" y="416" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -176,7 +185,6 @@
                         <outlet property="convertResultLabel" destination="YWP-ks-klX" id="4n3-9f-p0F"/>
                         <outlet property="endingCurrencyPickerView" destination="B4n-pU-jRk" id="prg-yr-sGK"/>
                         <outlet property="moneyEnterText" destination="j06-id-Gfe" id="LKg-Vb-dcG"/>
-                        <outlet property="startingCurrencyPickerView" destination="nGS-ug-YeH" id="SiN-iw-gSZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CQ-qn-xVU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -271,7 +279,7 @@
             <objects>
                 <navigationController id="d2u-Ea-tWc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v3z-qs-joD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
