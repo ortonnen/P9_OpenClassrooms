@@ -7,12 +7,14 @@
 //
 
 import XCTest
+//@ testable import
+//@ testable import CurrencyRate
 
 class CurrencyRateTest: XCTestCase {
 
     func testGetCurrencyRateShouldPostFailedCallbackIfError() {
         // Given
-        let currencyService = CurrencyRateService()
+//        let currencyService = CurrencyRateService()
         //        let quoteService = QuoteService(
         //            quoteSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData().error),
         //            imageSession: URLSessionFake(data: nil, response: nil, error: nil))
