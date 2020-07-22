@@ -9,7 +9,7 @@
 import UIKit
 
 class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    //MARK: Proprieties
     @IBOutlet weak var convertButton: UIButton!
     @IBOutlet weak var convertResultLabel: UILabel!
     @IBOutlet weak var moneyEnterText: UITextField!
@@ -20,8 +20,9 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPicke
     private var amount = Double()
     private var amountConvert = String()
     private var currencyExchange = CurrencyExchange()
-    private var currencyRateService = CurrencyRateService.shared
 
+
+    //MARK: Methode
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.isHidden = true
@@ -34,6 +35,7 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPicke
     }
 
     private func convert(with rate: Double) {
+        // prendre en charge avec la virgule (création alerte)
         amount = Double(moneyEnterText.text!)!
         amountConvert = String(currencyExchange.convertMoney(from: amount, to: rate))
         convertResultLabel.text = amountConvert
@@ -54,7 +56,8 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPicke
         convertButton.isHidden = shown
     }
 }
-//MARK: Keyboard
+
+//MARK: PickerView
 extension ExchangeRateViewController {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -66,6 +69,10 @@ extension ExchangeRateViewController {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return currencies[row]
     }
+}
+
+//MARK: Keyboard
+extension ExchangeRateViewController {
 
     @IBAction func dismissKeyboard(_ sender: Any) {
         moneyEnterText.resignFirstResponder()
@@ -76,6 +83,7 @@ extension ExchangeRateViewController {
         return true
     }
 }
+
 //MARK: Alerte
 extension ExchangeRateViewController {
 

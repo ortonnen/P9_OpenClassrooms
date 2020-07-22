@@ -17,7 +17,6 @@ class TranslationViewController: UIViewController {
     }
     
     @IBOutlet weak var textToTranslateView: UITextField!
-
     @IBOutlet weak var translateButton: UIButton!
     /*
     // MARK: - Navigation

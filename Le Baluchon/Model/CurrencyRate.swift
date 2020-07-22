@@ -19,6 +19,10 @@ struct CurrencyRate: Decodable {
 
 struct CurrencyExchange {
 
+    static func empty() -> CurrencyRate {
+        return CurrencyRate(success: false, timestamp: 0, date: "", rates: ["" : 0])
+    }
+
     func convertMoney(from originalCurrency: Double, to desiredCurrency: Double) -> Double {
         var result = Double()
 
