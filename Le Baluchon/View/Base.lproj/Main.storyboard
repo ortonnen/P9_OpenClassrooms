@@ -65,20 +65,98 @@
             <point key="canvasLocation" x="-570" y="817.5"/>
         </scene>
         <!--Weather View Controller-->
-        <scene sceneID="Z7r-Oe-MIh">
+        <scene sceneID="5xu-uM-gJX">
             <objects>
-                <viewController id="wgl-mn-uWz" customClass="WeatherViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JN7-Ny-5JT">
+                <viewController storyboardIdentifier="sdFirstWeatherView" id="Q21-an-N8Q" customClass="WeatherViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ebl-b5-xAu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTJ-kW-1vC">
+                                <rect key="frame" x="205" y="230" width="21" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PYB-CW-1sC">
+                                <rect key="frame" x="40" y="56" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Erquy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-sN-COl">
+                                <rect key="frame" x="40" y="243" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWT-ZQ-ojM">
+                                <rect key="frame" x="137" y="438" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Valider">
+                                    <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedValidateButton" destination="Q21-an-N8Q" eventType="touchUpInside" id="JJt-Uq-sSn"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="7yl-Lw-mbE"/>
+                        <viewLayoutGuide key="safeArea" id="Iej-Se-gkK"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ryK-ch-JBe"/>
+                    <navigationItem key="navigationItem" id="vLI-hx-9Bh"/>
+                    <connections>
+                        <outlet property="cityTextField" destination="LaN-sN-COl" id="XUJ-tD-dMD"/>
+                        <outlet property="temperatureLabel" destination="CTJ-kW-1vC" id="Zvq-yG-RUy"/>
+                        <outlet property="weatherImageView" destination="PYB-CW-1sC" id="0ix-yF-ZdR"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ozk-4H-Ont" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51z-FJ-ITd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="818"/>
+            <point key="canvasLocation" x="-261" y="1584"/>
+        </scene>
+        <!--Weather View Controller-->
+        <scene sceneID="gm3-6U-j8C">
+            <objects>
+                <viewController storyboardIdentifier="sdSecondWeatherView" id="xgu-JG-jQa" customClass="WeatherViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EFp-88-yhx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="arU-55-g4z">
+                                <rect key="frame" x="16" y="270" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ov2-D9-aPx">
+                                <rect key="frame" x="262" y="248" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kPH-29-TJK">
+                                <rect key="frame" x="16" y="20" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="nvj-G4-vaD"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NKC-d5-EiH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="484" y="1584"/>
+        </scene>
+        <!--Weather Page View Controller-->
+        <scene sceneID="zVh-i5-9iQ">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="HFU-79-UUi" customClass="WeatherPageViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="EJM-dc-5gm"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zls-v2-pyK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="165" y="818"/>
         </scene>
         <!--Exchange Rate View Controller-->
         <scene sceneID="pzZ-ih-KRt">
@@ -224,7 +302,7 @@
                                         </state>
                                         <connections>
                                             <action selector="tappedWeatherButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="gTK-jG-n7p"/>
-                                            <segue destination="wgl-mn-uWz" kind="show" id="0Ql-6H-Rcv"/>
+                                            <segue destination="Q21-an-N8Q" kind="show" id="jty-jI-Tis"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XC9-FV-82M">
@@ -235,7 +313,7 @@
                                         </state>
                                         <connections>
                                             <action selector="tappedExchangeButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="TEk-9q-jMI"/>
-                                            <segue destination="TiC-GC-9ZH" kind="show" id="rmp-1D-V8c"/>
+                                            <segue destination="TiC-GC-9ZH" kind="show" id="W1d-pf-Rnq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlo-ax-NFl">
@@ -279,7 +357,7 @@
             <objects>
                 <navigationController id="d2u-Ea-tWc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v3z-qs-joD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
