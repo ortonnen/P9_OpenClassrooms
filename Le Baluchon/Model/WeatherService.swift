@@ -22,8 +22,8 @@ class WeatherService {
 
     }
 
-    func getweather(callback: @escaping (Bool, Weather?) -> Void) {
-        let request = createWeatherRequest()
+    func getweather(for city: String, callback: @escaping (Bool, Weather?) -> Void) {
+        let request = createWeatherRequest(for: city)
 
         task?.cancel()
         task = weatherSession.dataTask(with: request.url!) { (data, response, error) in
@@ -44,11 +44,13 @@ class WeatherService {
         task?.resume()
     }
 
-    private func createWeatherRequest() -> URLComponents {
+    private func createWeatherRequest(for city: String) -> URLComponents {
         var component = URLComponents(url: weatherURL, resolvingAgainstBaseURL: true)
 
-        component?.queryItems = [URLQueryItem(name: "q", value: "london")]
+        component?.queryItems = [URLQueryItem(name: "q", value: "\(city)")]
         component?.queryItems = [URLQueryItem(name: "appid", value: "67d96eea07c431d9b5165f53ded7f9fd")]
+        component?.queryItems = [URLQueryItem(name: "units", value: "metric")]
+        component?.queryItems = [URLQueryItem(name: "lang", value: "fr")]
         return component!
     }
 
