@@ -8,6 +8,9 @@
 
 import UIKit
 
+//Tips: tu peux changer le type de clavier (dans notre cas un keyboard de type .numberPad)
+// textField.KeyboardType = .numberPad
+
 class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     //MARK: Proprieties
     @IBOutlet weak var convertButton: UIButton!
@@ -20,34 +23,58 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPicke
     private var amount = Double()
     private var amountConvert = String()
     private var currencyExchange = CurrencyExchange()
+    
+    var currency: CurrencyRate = CurrencyRate.empty() {
+        didSet {
+            //4
+            endingCurrencyPickerView.reloadAllComponents()
+        }
+    }
+    var currentRate: Double?
 
 
     //MARK: Methode
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.isHidden = true
+        endingCurrencyPickerView.dataSource = self
         endingCurrencyPickerView.delegate = self
+        
+//        endingCurrencyPickerView.backgroundColor = .gray
+        
+        //1
+        searchRate()
     }
 
     @IBAction func tappedConvertButton() {
         guard moneyEnterText.text != "" && moneyEnterText.text != nil else { return missingArgumentAlerte() }
-        searchRate()
+        //searchRate()
+        
+        if let text = moneyEnterText.text, let number = Double(text) {
+            if let rate = currentRate {
+                let result = currencyExchange.convertMoney(from: number, to: rate)
+                convertResultLabel.text = String(result)
+            }
+        }
     }
 
     private func convert(with rate: Double) {
-        // prendre en charge avec la virgule (création alerte)
+        //prendre en charge avec la virgule (création alerte)
         amount = Double(moneyEnterText.text!)!
         amountConvert = String(currencyExchange.convertMoney(from: amount, to: rate))
         convertResultLabel.text = amountConvert
     }
 
+    //2
     private func searchRate(){
         toggleActivityIndicator(shown: true)
         CurrencyRateService.shared.getCurrencyRate { (success, currency) in
             self .toggleActivityIndicator(shown: false)
-            guard success, let currency = currency, currency.rates["USD"] != nil else { return self.connectionAlerte() }
-            self.rate = currency.rates["USD"]!
-            self.convert(with: self.rate)
+            guard success, let currency = currency else { return self.connectionAlerte() }
+            //3
+            self.currency = currency
+            //self.rate = currency.rates["USD"]!
+            //self.convert(with: self.rate)
         }
     }
 
@@ -60,14 +87,22 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPicke
 //MARK: PickerView
 extension ExchangeRateViewController {
 
+    //5
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return currencies.count
+        return currency.rates.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return currencies[row]
+        for (index, element) in currency.rates.enumerated() {
+            if index == row {
+                //6
+                currentRate = element.value
+                return element.key
+            }
+        }
+        return nil
     }
 }
 

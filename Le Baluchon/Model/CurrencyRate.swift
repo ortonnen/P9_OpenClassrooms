@@ -17,11 +17,14 @@ struct CurrencyRate: Decodable {
 
 }
 
-struct CurrencyExchange {
-
+extension CurrencyRate {
     static func empty() -> CurrencyRate {
         return CurrencyRate(success: false, timestamp: 0, date: "", rates: ["" : 0])
     }
+}
+
+struct CurrencyExchange {
+
 
     func convertMoney(from originalCurrency: Double, to desiredCurrency: Double) -> Double {
         var result = Double()
