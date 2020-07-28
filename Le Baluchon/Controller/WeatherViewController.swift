@@ -16,19 +16,27 @@ class WeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchWeather()
 
         // Do any additional setup after loading the view.
     }
     @IBAction func tappedValidateButton() {
+
         searchWeather()
     }
 
     private func searchWeather(){
-        WeatherService.shared.getweather(for: cityTextField.text!) { (success, weather) in
-            guard success, let weather = weather else {
+        WeatherService.shared.getweather(for: "Erquy") { (success, weather) in
+            guard success else {
+            print("error success")
+            return}
+
+            guard let weather = weather else {
+                print("error weather")
                 return
             }
-            self.temperatureLabel.text = weather.main.description
+            print ("\(weather.temperature.temp)")
+            self.temperatureLabel.text = "\(weather.temperature.temp)"
         }
     }
 

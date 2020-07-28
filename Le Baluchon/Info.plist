@@ -64,6 +64,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>openweathermap.org</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
 			<key>fixer.io</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
