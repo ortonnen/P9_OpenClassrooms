@@ -7,8 +7,7 @@
 //
 
 import XCTest
-//@ testable import CurrencyRateService
-//@ testable import CurrencyRate
+@ testable import CurrencyRate
 
 class CurrencyRateTest: XCTestCase {
 
