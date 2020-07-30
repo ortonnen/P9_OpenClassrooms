@@ -13,7 +13,9 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityTextField: UITextField!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var validateButton: UIButton!
+
     @IBOutlet weak var sunriseHourLabel: UILabel!
     @IBOutlet weak var sunsetHourLabel: UILabel!
     @IBOutlet weak var windSpeedLabel: UILabel!
@@ -22,6 +24,8 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        activityIndicator.isHidden = true
         
         // Do any additional setup after loading the view.
     }
@@ -53,6 +57,11 @@ class WeatherViewController: UIViewController {
             self.windDirectionLabel.text = "\(weather.wind.deg)"
             self.humidityLevelLabel.text = "\(weather.temperature.humidity)"
         }
+    }
+
+    private func toggleActivityIndicator(shown: Bool) {
+        activityIndicator.isHidden = !shown
+        validateButton.isHidden = shown
     }
 }
 

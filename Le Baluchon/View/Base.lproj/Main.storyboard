@@ -105,6 +105,9 @@
                                     <action selector="tappedValidateButton" destination="Q21-an-N8Q" eventType="touchUpInside" id="JJt-Uq-sSn"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="q1A-Cg-wKI">
+                                <rect key="frame" x="150" y="367.5" width="20" height="20"/>
+                            </activityIndicatorView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Erquy" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-sN-COl">
                                 <rect key="frame" x="16" y="252" width="107.5" height="25.5"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -130,7 +133,9 @@
                             <constraint firstItem="PYB-CW-1sC" firstAttribute="top" secondItem="Iej-Se-gkK" secondAttribute="top" id="HLj-Y9-KTp"/>
                             <constraint firstItem="Iej-Se-gkK" firstAttribute="trailing" secondItem="aWT-ZQ-ojM" secondAttribute="trailing" constant="16" id="NFb-e3-M04"/>
                             <constraint firstItem="Iej-Se-gkK" firstAttribute="trailing" secondItem="PYB-CW-1sC" secondAttribute="trailing" constant="16" id="USe-Vq-8N8"/>
+                            <constraint firstItem="q1A-Cg-wKI" firstAttribute="centerX" secondItem="aWT-ZQ-ojM" secondAttribute="centerX" id="YTX-6R-bys"/>
                             <constraint firstItem="LaN-sN-COl" firstAttribute="top" secondItem="PYB-CW-1sC" secondAttribute="bottom" constant="8" id="fut-vl-u8o"/>
+                            <constraint firstItem="q1A-Cg-wKI" firstAttribute="centerY" secondItem="aWT-ZQ-ojM" secondAttribute="centerY" id="mZF-dG-qEu"/>
                             <constraint firstItem="YpR-82-Y2i" firstAttribute="top" secondItem="PYB-CW-1sC" secondAttribute="bottom" constant="8" id="oiW-dL-hOs"/>
                             <constraint firstItem="aWT-ZQ-ojM" firstAttribute="leading" secondItem="Iej-Se-gkK" secondAttribute="leading" constant="16" id="v94-tX-SzZ"/>
                             <constraint firstItem="Iej-Se-gkK" firstAttribute="bottom" secondItem="aWT-ZQ-ojM" secondAttribute="bottom" constant="20" id="wQC-3s-VgG"/>
@@ -145,8 +150,10 @@
                     <tabBarItem key="tabBarItem" title="météo" id="IGM-8i-Iqv"/>
                     <navigationItem key="navigationItem" id="vLI-hx-9Bh"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="q1A-Cg-wKI" id="9Zw-p1-8e1"/>
                         <outlet property="cityTextField" destination="LaN-sN-COl" id="XUJ-tD-dMD"/>
                         <outlet property="temperatureLabel" destination="CTJ-kW-1vC" id="Zvq-yG-RUy"/>
+                        <outlet property="validateButton" destination="aWT-ZQ-ojM" id="T9P-KK-9AD"/>
                         <outlet property="weatherImageView" destination="PYB-CW-1sC" id="0ix-yF-ZdR"/>
                     </connections>
                 </viewController>
@@ -548,7 +555,7 @@ HumidityLevel StackView</string>
             <objects>
                 <navigationController id="d2u-Ea-tWc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v3z-qs-joD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
