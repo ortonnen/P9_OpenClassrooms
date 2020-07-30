@@ -14,9 +14,14 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityTextField: UITextField!
 
+    @IBOutlet weak var sunriseHourLabel: UILabel!
+    @IBOutlet weak var sunsetHourLabel: UILabel!
+    @IBOutlet weak var windSpeedLabel: UILabel!
+    @IBOutlet weak var windDirectionLabel: UILabel!
+    @IBOutlet weak var humidityLevelLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchWeather()
 
         // Do any additional setup after loading the view.
     }

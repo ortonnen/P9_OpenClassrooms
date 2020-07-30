@@ -19,8 +19,8 @@
 		5A0107B824B5F796008B9063 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0107B724B5F796008B9063 /* Weather.swift */; };
 		5A0107BA24B5F7B1008B9063 /* CurrencyRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0107B924B5F7B1008B9063 /* CurrencyRate.swift */; };
 		5A0107BC24B5F7CD008B9063 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0107BB24B5F7CD008B9063 /* Translation.swift */; };
-		5A7EA30224C72F5500CCCA55 /* WeatherPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EA30124C72F5500CCCA55 /* WeatherPageViewController.swift */; };
 		5A7EA30424C7355900CCCA55 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EA30324C7355900CCCA55 /* WeatherViewController.swift */; };
+		5A7EA30624D07C6400CCCA55 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EA30524D07C6300CCCA55 /* TranslationService.swift */; };
 		5AADD8C924B7469500227CDC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AADD8C824B7469500227CDC /* Default-568h@2x.png */; };
 		5AADD8CB24BCA2EB00227CDC /* CurrencyRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADD8CA24BCA2EB00227CDC /* CurrencyRateService.swift */; };
 		5AADD8CD24BDAD0500227CDC /* CurrencyRateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADD8CC24BDAD0500227CDC /* CurrencyRateTest.swift */; };
@@ -65,8 +65,8 @@
 		5A0107B724B5F796008B9063 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		5A0107B924B5F7B1008B9063 /* CurrencyRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRate.swift; sourceTree = "<group>"; };
 		5A0107BB24B5F7CD008B9063 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
-		5A7EA30124C72F5500CCCA55 /* WeatherPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPageViewController.swift; sourceTree = "<group>"; };
 		5A7EA30324C7355900CCCA55 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		5A7EA30524D07C6300CCCA55 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		5AADD8C824B7469500227CDC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5AADD8CA24BCA2EB00227CDC /* CurrencyRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateService.swift; sourceTree = "<group>"; };
 		5AADD8CC24BDAD0500227CDC /* CurrencyRateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateTest.swift; sourceTree = "<group>"; };
@@ -180,7 +180,6 @@
 				5A0107AF24B5F6DA008B9063 /* ExchangeRateViewController.swift */,
 				5A0107B124B5F711008B9063 /* TranslationViewController.swift */,
 				5A0107B524B5F769008B9063 /* WelcomViewController.swift */,
-				5A7EA30124C72F5500CCCA55 /* WeatherPageViewController.swift */,
 				5A7EA30324C7355900CCCA55 /* WeatherViewController.swift */,
 			);
 			path = Controller;
@@ -208,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				5A0107BB24B5F7CD008B9063 /* Translation.swift */,
+				5A7EA30524D07C6300CCCA55 /* TranslationService.swift */,
 			);
 			name = Translate;
 			sourceTree = "<group>";
@@ -347,11 +347,11 @@
 			files = (
 				5AADD8CB24BCA2EB00227CDC /* CurrencyRateService.swift in Sources */,
 				5A0107B224B5F711008B9063 /* TranslationViewController.swift in Sources */,
-				5A7EA30224C72F5500CCCA55 /* WeatherPageViewController.swift in Sources */,
 				5AADD8D124BDD00300227CDC /* WeatherService.swift in Sources */,
 				5A7EA30424C7355900CCCA55 /* WeatherViewController.swift in Sources */,
 				5A0107BC24B5F7CD008B9063 /* Translation.swift in Sources */,
 				5A0107B024B5F6DA008B9063 /* ExchangeRateViewController.swift in Sources */,
+				5A7EA30624D07C6400CCCA55 /* TranslationService.swift in Sources */,
 				5A01077D24B5F4FC008B9063 /* AppDelegate.swift in Sources */,
 				5A0107BA24B5F7B1008B9063 /* CurrencyRate.swift in Sources */,
 				5A01077F24B5F4FC008B9063 /* SceneDelegate.swift in Sources */,
