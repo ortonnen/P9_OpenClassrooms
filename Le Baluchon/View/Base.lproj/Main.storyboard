@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d2u-Ea-tWc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d2u-Ea-tWc">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -65,7 +65,7 @@
             <objects>
                 <viewController storyboardIdentifier="sdFirstWeatherView" id="Q21-an-N8Q" customClass="WeatherViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ebl-b5-xAu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PYB-CW-1sC">
@@ -74,15 +74,6 @@
                                     <constraint firstAttribute="width" secondItem="PYB-CW-1sC" secondAttribute="height" multiplier="36:25" id="LRq-ld-ZqK"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Erquy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-sN-COl">
-                                <rect key="frame" x="16" y="252" width="107.5" height="25.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="LaN-sN-COl" secondAttribute="height" multiplier="143:34" id="BPc-gK-Wor"/>
-                                </constraints>
-                                <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YpR-82-Y2i" userLabel="Temperature StackView">
                                 <rect key="frame" x="251.5" y="252" width="52.5" height="25.5"/>
                                 <subviews>
@@ -114,8 +105,24 @@
                                     <action selector="tappedValidateButton" destination="Q21-an-N8Q" eventType="touchUpInside" id="JJt-Uq-sSn"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Erquy" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-sN-COl">
+                                <rect key="frame" x="16" y="252" width="107.5" height="25.5"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" keyboardKey="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LaN-sN-COl" secondAttribute="height" multiplier="143:34" id="BPc-gK-Wor"/>
+                                </constraints>
+                                <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES" textContentType="address-level2"/>
+                                <connections>
+                                    <action selector="dismissKeyboard:" destination="51z-FJ-ITd" eventType="editingDidEndOnExit" id="HLM-UL-NSh"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.85624831909999999" green="0.84847223760000001" blue="0.85873085260000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="PYB-CW-1sC" firstAttribute="leading" secondItem="Iej-Se-gkK" secondAttribute="leading" constant="16" id="BK7-CN-MEk"/>
                             <constraint firstItem="YpR-82-Y2i" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LaN-sN-COl" secondAttribute="trailing" constant="8" symbolic="YES" id="FjG-VB-eEo"/>
@@ -131,6 +138,9 @@
                             <constraint firstItem="Iej-Se-gkK" firstAttribute="trailing" secondItem="YpR-82-Y2i" secondAttribute="trailing" constant="16" id="zaJ-xg-jKy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iej-Se-gkK"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7ZI-Ox-vXY" appends="YES" id="gUl-ZJ-36H"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="météo" id="IGM-8i-Iqv"/>
                     <navigationItem key="navigationItem" id="vLI-hx-9Bh"/>
@@ -140,7 +150,12 @@
                         <outlet property="weatherImageView" destination="PYB-CW-1sC" id="0ix-yF-ZdR"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="51z-FJ-ITd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51z-FJ-ITd" userLabel="First Responder" customClass="UIResponder" propertyAccessControl="localizable" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7ZI-Ox-vXY">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="Q21-an-N8Q" id="PWL-Be-hMd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1251" y="1659"/>
         </scene>
@@ -149,11 +164,13 @@
             <objects>
                 <tabBarController id="Lmf-Fm-No9" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4PH-cy-gaM"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pj2-hI-Hkp">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="pj2-hI-Hkp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Q21-an-N8Q" kind="relationship" relationship="viewControllers" id="h26-8L-L0S"/>
@@ -169,11 +186,11 @@
             <objects>
                 <viewController storyboardIdentifier="sdSecondWeatherView" id="xgu-JG-jQa" customClass="WeatherViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EFp-88-yhx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="zMg-mJ-sT2" userLabel="Information StackView">
-                                <rect key="frame" x="16" y="84" width="288" height="312"/>
+                                <rect key="frame" x="16" y="59.5" width="288" height="312"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="N9F-GQ-7HJ" userLabel="Sunrise StackView">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="40"/>
@@ -370,6 +387,9 @@ HumidityLevel StackView</string>
                                                 <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="continue"/>
+                                                <connections>
+                                                    <action selector="dismissKeyboard:" destination="6CQ-qn-xVU" eventType="editingDidEndOnExit" id="jR5-br-WwQ"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zep-qr-V6h">
                                                 <rect key="frame" x="152" y="0.0" width="136" height="140"/>
