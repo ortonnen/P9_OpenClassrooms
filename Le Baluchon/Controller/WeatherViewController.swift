@@ -31,7 +31,7 @@ class WeatherViewController: UIViewController {
     }
 
     private func searchWeather(){
-        WeatherService.shared.getweather(for: "Erquy") { (success, weather) in
+        WeatherService.shared.getweather(for: cityTextField.text!) { (success, weather) in
             guard success else {
             print("error success")
             return}
@@ -42,6 +42,11 @@ class WeatherViewController: UIViewController {
             }
             print ("\(weather.temperature.temp)")
             self.temperatureLabel.text = "\(weather.temperature.temp)"
+            self.sunriseHourLabel.text = "\(weather.sys.sunrise)"
+            self.sunsetHourLabel.text = "\(weather.sys.sunset)"
+            self.windSpeedLabel.text = "\(weather.wind.speed)"
+            self.windDirectionLabel.text = "\(weather.wind.deg)"
+            self.humidityLevelLabel.text = "\(weather.temperature.humidity)"
         }
     }
 
