@@ -51,10 +51,10 @@ class WeatherService {
     private func createWeatherRequest(for city: String) -> URLComponents {
         var component = URLComponents(url: weatherURL, resolvingAgainstBaseURL: true)
         
-        component?.queryItems = [URLQueryItem(name: "q", value: "\(city)")]
-        component?.queryItems = [URLQueryItem(name: "appid", value: "67d96eea07c431d9b5165f53ded7f9fd")]
-        component?.queryItems = [URLQueryItem(name: "units", value: "metric")]
-        component?.queryItems = [URLQueryItem(name: "lang", value: "fr")]
+        component?.queryItems = [URLQueryItem(name: "q", value: "\(city)"),
+                                 URLQueryItem(name: "appid", value: "67d96eea07c431d9b5165f53ded7f9fd"),
+                                 URLQueryItem(name: "units", value: "metric"),
+                                 URLQueryItem(name: "lang", value: "fr")]
         return component!
     }
     

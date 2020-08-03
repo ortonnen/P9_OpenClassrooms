@@ -21,14 +21,15 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var windDirectionLabel: UILabel!
     @IBOutlet weak var humidityLevelLabel: UILabel!
+
+    private var weatherTranslate = WeatherTranslate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        activityIndicator.isHidden = true
-        
         // Do any additional setup after loading the view.
     }
+
     @IBAction func tappedValidateButton() {
         guard cityTextField.text != "" && cityTextField.text != nil else {
             return missingArgumentAlerte()
@@ -48,14 +49,22 @@ class WeatherViewController: UIViewController {
                 print("error weather")
                 return self.connectionAlerte()
             }
-            
-            print ("\(weather.temperature.temp)")
-            self.temperatureLabel.text = "\(weather.temperature.temp)"
-            self.sunriseHourLabel.text = "\(weather.sys.sunrise)"
-            self.sunsetHourLabel.text = "\(weather.sys.sunset)"
-            self.windSpeedLabel.text = "\(weather.wind.speed)"
-            self.windDirectionLabel.text = "\(weather.wind.deg)"
-            self.humidityLevelLabel.text = "\(weather.temperature.humidity)"
+
+            print("\(self.cityTextField.text!)")
+            print ("Température: \(weather.main.temp)°C")
+            print("wind Speed: \(self.weatherTranslate.windSpeedConvert(from: weather.wind.speed)) Km/H")
+            print("Wind direction \(self.weatherTranslate.convertDegreeToWindDirection(for: weather.wind.deg))")
+            print("Humidity \(weather.main.humidity) %")
+            print("sunrise: \(self.weatherTranslate.sunHourConvert(for: weather.sys.sunrise))")
+            print("sunset: \(self.weatherTranslate.sunHourConvert(for: weather.sys.sunset))")
+
+            self.temperatureLabel.text = "\(weather.main.temp)"
+//            self.weatherImageView.image = 
+            //            self.windSpeedLabel.text = "\(self.weatherTranslate.windSpeedConvert(mPerS:weather.wind.speed))"
+            //            self.sunriseHourLabel.text = "\(weather.sys.sunrise)"
+            //            self.sunsetHourLabel.text = "\(weather.sys.sunset)"
+            //            self.windDirectionLabel.text = "\(weather.wind.deg)"
+            //                        self.humidityLevelLabel.text = "\(weather.main.humidity)"
         }
     }
 
