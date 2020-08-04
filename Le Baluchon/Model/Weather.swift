@@ -36,9 +36,7 @@ struct Wind: Codable {
 }
 
 struct Sys: Codable {
-    var type: Int //( parametre interne)
-    var id: Int //( parametre interne)
-    var country: String //( code du pays )
+    
     var sunrise: Int //( heure du levé de soleil)
     var sunset: Int //(heure du coucher du soleil)
 }
