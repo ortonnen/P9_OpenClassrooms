@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum WeatherError: Error {
+    case dataError
+    case responseError
+    case weatherError
+}
+
 class WeatherService {
     static var shared = WeatherService()
     private init() {}
@@ -22,27 +28,36 @@ class WeatherService {
         
     }
     
-    func getweather(for city: String, callback: @escaping (Bool, Weather?) -> Void) {
+    func getweather(for city: String, callback: @escaping (Bool, Weather?, WeatherError?, WeatherStatusCodeError?) -> Void) {
         let request = createWeatherRequest(for: city)
         
         task?.cancel()
         task = weatherSession.dataTask(with: request.url!) { (data, response, error) in
             DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    print ("data error")
-                    callback(false, nil)
+
+                guard let data = data else {
+                    print("data")
+                    callback(false, nil, .dataError, nil )
                     return}
-                
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    print("response error")
-                    callback(false, nil)
-                    return }
-                guard let weather = try? JSONDecoder().decode(Weather.self, from: data) else {
-                    print("weather error")
-                    callback(false, nil)
+
+                guard error == nil else {
+                    print("error")
                     return
                 }
-                callback(true, weather)
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    print("response")
+                    let responseStatusCodeError = try? JSONDecoder().decode(WeatherStatusCodeError.self, from: data)
+                    print(responseStatusCodeError!.message)
+                    callback(false, nil, .responseError, responseStatusCodeError)
+                    return
+                }
+
+                guard let weather = try? JSONDecoder().decode(Weather.self, from: data) else {
+                    print("weather")
+                    callback(false, nil, .weatherError, nil)
+                    return
+                }
+                callback(true, weather, nil, nil)
             }
         }
         task?.resume()

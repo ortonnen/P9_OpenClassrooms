@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Translation {
+struct Translation: Codable {
 
     func translate() {
         // appel reseau traduire un text ecrit

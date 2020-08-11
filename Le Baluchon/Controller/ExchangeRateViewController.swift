@@ -5,6 +5,7 @@
 //  Created by Nathalie Ortonne on 08/07/2020.
 //  Copyright © 2020 Nathalie Ortonne. All rights reserved.
 //
+//gestion erreur
 
 import UIKit
 
@@ -58,9 +59,11 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPicke
 
     private func searchRate(){
         toggleActivityIndicator(shown: true)
-        CurrencyRateService.shared.getCurrencyRate { (success, currency) in
+        CurrencyRateService.shared.getCurrencyRate { (success, currency, currencyError, currencyStatusCodeError  )  in
             self .toggleActivityIndicator(shown: false)
-            guard success, let currency = currency else { return self.connectionAlerte() }
+            guard success, let currency = currency else {
+                    return self.connectionAlerte() 
+            }
             self.currency = currency
         }
     }
@@ -121,5 +124,13 @@ extension ExchangeRateViewController {
         alerte.addAction(alerteAction)
         self.present(alerte,animated: true, completion: nil)
     }
+
+    private func statusCodeAlerte(with text:String) {
+        let alerte = UIAlertController(title: "Erreur", message: "\(text)", preferredStyle: .alert)
+        let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alerte.addAction(alerteAction)
+        self.present(alerte,animated: true, completion: nil)
+    }
+
 }
 

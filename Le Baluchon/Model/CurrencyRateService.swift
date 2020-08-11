@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum CurrencyRateError: Error {
+    case dataError
+    case responseError
+    case currencyError
+}
+
 class CurrencyRateService {
     static var shared = CurrencyRateService()
     private init() {}
@@ -21,23 +27,24 @@ class CurrencyRateService {
         self.currencyRateSession = currencyRateSession
     }
 
-    func getCurrencyRate(callback: @escaping (Bool, CurrencyRate?) -> Void) {
+    func getCurrencyRate(callback: @escaping (Bool, CurrencyRate?, CurrencyRateError?, CurrencyError?) -> Void) {
         let request = createCurrencyRateRequest()
 
         task?.cancel()
         task = currencyRateSession.dataTask(with: request.url!) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
-                    callback(false, nil)
+                    callback(false, nil, .dataError, nil)
                     return}
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(false, nil)
-                    return }
+                    let responseStatusCodeError = try?JSONDecoder().decode(CurrencyError.self, from: data)
+                    callback(false, nil, .responseError, responseStatusCodeError)
+                    return}
                 guard let currency = try? JSONDecoder().decode(CurrencyRate.self, from: data) else {
-                    callback(false, nil)
+                    callback(false, nil, .currencyError, nil)
                     return
                 }
-                callback(true, currency)
+                callback(true, currency, nil, nil)
             }
         }
         task?.resume()

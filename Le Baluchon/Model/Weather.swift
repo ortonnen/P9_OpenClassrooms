@@ -41,7 +41,7 @@ struct Sys: Codable {
     var sunset: Int //(heure du coucher du soleil)
 }
 
-class WeatherTranslate {
+struct WeatherTranslate {
 
 
     func windSpeedConvert(from meterPerSecond: Double) -> Double {
