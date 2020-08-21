@@ -22,7 +22,6 @@
 		5A6AF87624E169270020A755 /* CurrencyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AF87524E169270020A755 /* CurrencyError.swift */; };
 		5A6AF87824E16D4A0020A755 /* WeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AF87724E16D4A0020A755 /* WeatherError.swift */; };
 		5A6AF8AC24E41AB40020A755 /* Le_BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AF8AB24E41AB40020A755 /* Le_BaluchonTests.swift */; };
-		5A6AF8B424E531FB0020A755 /* TranslationService2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AF8B324E531FB0020A755 /* TranslationService2.swift */; };
 		5A6AF8B624E53A7C0020A755 /* AlerteCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6AF8B524E53A7C0020A755 /* AlerteCollection.swift */; };
 		5A7EA30424C7355900CCCA55 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EA30324C7355900CCCA55 /* WeatherViewController.swift */; };
 		5A7EA30624D07C6400CCCA55 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7EA30524D07C6300CCCA55 /* TranslationService.swift */; };
@@ -61,7 +60,6 @@
 		5A6AF8A924E41AB40020A755 /* Le BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le BaluchonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6AF8AB24E41AB40020A755 /* Le_BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonTests.swift; sourceTree = "<group>"; };
 		5A6AF8AD24E41AB40020A755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A6AF8B324E531FB0020A755 /* TranslationService2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService2.swift; sourceTree = "<group>"; };
 		5A6AF8B524E53A7C0020A755 /* AlerteCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlerteCollection.swift; sourceTree = "<group>"; };
 		5A7EA30324C7355900CCCA55 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		5A7EA30524D07C6300CCCA55 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 			children = (
 				5A0107BB24B5F7CD008B9063 /* Translation.swift */,
 				5A7EA30524D07C6300CCCA55 /* TranslationService.swift */,
-				5A6AF8B324E531FB0020A755 /* TranslationService2.swift */,
 			);
 			name = Translate;
 			sourceTree = "<group>";
@@ -300,7 +297,6 @@
 				5A7EA30424C7355900CCCA55 /* WeatherViewController.swift in Sources */,
 				5A0107BC24B5F7CD008B9063 /* Translation.swift in Sources */,
 				5A0107B024B5F6DA008B9063 /* ExchangeRateViewController.swift in Sources */,
-				5A6AF8B424E531FB0020A755 /* TranslationService2.swift in Sources */,
 				5A7EA30624D07C6400CCCA55 /* TranslationService.swift in Sources */,
 				5A01077D24B5F4FC008B9063 /* AppDelegate.swift in Sources */,
 				5A6AF8B624E53A7C0020A755 /* AlerteCollection.swift in Sources */,
