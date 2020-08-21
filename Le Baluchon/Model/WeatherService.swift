@@ -103,27 +103,4 @@ class WeatherService {
         }
         task?.resume()
     }
-
-//    private func getImage(weather: String, completionHandler: @escaping ((Data?) -> Void)) {
-//
-//        let pictureUrl = URL(string: "https://source.unsplash.com/500x400?\(weather)")!
-//
-//        task?.cancel()
-//        task = imageSession.dataTask(with: pictureUrl) { (data, response, error) in
-//            DispatchQueue.main.async {
-//                guard let data = data, error == nil else {
-//                    completionHandler(nil)
-//                    return
-//                }
-//
-//                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-//                    completionHandler(nil)
-//                    return
-//                }
-//
-//                completionHandler(data)
-//            }
-//        }
-//        task?.resume()
-//    }
 }
