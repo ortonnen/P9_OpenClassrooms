@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct WeatherImage {
+    var weatherImage: Data
+}
+
 struct Weather: Codable {
     let name: String
     let weather: [WeatherCondition]

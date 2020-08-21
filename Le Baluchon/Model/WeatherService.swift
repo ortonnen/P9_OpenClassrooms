@@ -19,7 +19,8 @@ class WeatherService {
     private init() {}
     
     private let weatherURL = URL(string: "http://api.openweathermap.org/data/2.5/weather")!
-    
+
+    private let imageSession = URLSession(configuration: .default)
     private var weatherSession = URLSession(configuration: .default)
     private var task: URLSessionDataTask?
     
@@ -28,7 +29,7 @@ class WeatherService {
         
     }
     
-    func getweather(for city: String, callback: @escaping (Bool, Weather?, WeatherError?, WeatherStatusCodeError?) -> Void) {
+    func getweather(for city: String, callback: @escaping (Bool, Weather?, WeatherImage?, WeatherError?, WeatherStatusCodeError?) -> Void) {
         let request = createWeatherRequest(for: city)
         
         task?.cancel()
@@ -37,7 +38,7 @@ class WeatherService {
 
                 guard let data = data else {
                     print("data")
-                    callback(false, nil, .dataError, nil )
+                    callback(false, nil, nil, .dataError, nil )
                     return}
 
                 guard error == nil else {
@@ -47,17 +48,25 @@ class WeatherService {
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     print("response")
                     let responseStatusCodeError = try? JSONDecoder().decode(WeatherStatusCodeError.self, from: data)
-                    print(responseStatusCodeError!.message)
-                    callback(false, nil, .responseError, responseStatusCodeError)
+                    callback(false, nil, nil, .responseError, responseStatusCodeError)
                     return
                 }
 
                 guard let weather = try? JSONDecoder().decode(Weather.self, from: data) else {
                     print("weather")
-                    callback(false, nil, .weatherError, nil)
+                    callback(false, nil, nil, .weatherError, nil)
                     return
                 }
-                callback(true, weather, nil, nil)
+                self.getImage(for: weather.weather[0].icon) { (data, weatherError, weatherStatusCodeError) in
+                    guard let data = data else {
+                        callback(false, nil, nil, .dataError, nil)
+                        return
+                    }
+                    let weatherImage = WeatherImage.init(weatherImage: data)
+                    
+                    callback(true, weather, weatherImage, nil, nil)
+                }
+
             }
         }
         task?.resume()
@@ -72,5 +81,49 @@ class WeatherService {
                                  URLQueryItem(name: "lang", value: "fr")]
         return component!
     }
-    
+
+    func getImage(for weather: String, callback: @escaping (Data?, WeatherError?, WeatherStatusCodeError?) -> Void) {
+        let weatherPictureURL = URL(string: "http://openweathermap.org/img/wn/\(weather)@2x.png")!
+
+        task?.cancel()
+        task = imageSession.dataTask(with: weatherPictureURL) { (data, response, error) in
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    callback(nil, .dataError, nil)
+                    return
+                }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    print("response")
+                    let responseStatusCodeError = try? JSONDecoder().decode(WeatherStatusCodeError.self, from: data)
+                    callback(nil, .responseError, responseStatusCodeError)
+                    return
+                }
+                callback(data, nil, nil)
+            }
+        }
+        task?.resume()
+    }
+
+//    private func getImage(weather: String, completionHandler: @escaping ((Data?) -> Void)) {
+//
+//        let pictureUrl = URL(string: "https://source.unsplash.com/500x400?\(weather)")!
+//
+//        task?.cancel()
+//        task = imageSession.dataTask(with: pictureUrl) { (data, response, error) in
+//            DispatchQueue.main.async {
+//                guard let data = data, error == nil else {
+//                    completionHandler(nil)
+//                    return
+//                }
+//
+//                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+//                    completionHandler(nil)
+//                    return
+//                }
+//
+//                completionHandler(data)
+//            }
+//        }
+//        task?.resume()
+//    }
 }
