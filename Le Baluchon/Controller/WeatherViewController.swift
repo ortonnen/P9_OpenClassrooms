@@ -40,7 +40,7 @@ class WeatherViewController: UIViewController {
     }
     
     private func searchWeather(){
-        WeatherService.shared.getweather(for: cityTextField.text!) { (success, weather, weatherError, weatherStatusCodeError)  in
+        WeatherService.shared.getweather(for: cityTextField.text!) { (success, weather, weatherImage, weatherError, weatherStatusCodeError)   in
             guard success else {
                 if let weatherStatusCodeError = weatherStatusCodeError {
                     let errorText = weatherStatusCodeError.message
@@ -53,10 +53,16 @@ class WeatherViewController: UIViewController {
                 print("error weather")
                 return self.connectionAlerte()
             }
+            guard let weatherImage = weatherImage else {
+                print("error weather image")
+                return self.connectionAlerte()
+            }
             
             
             
-            // weather image + weather description à intégrer
+            // weather image à intégr
+            self.weatherImageView.image = UIImage.init(data: weatherImage.weatherImage)
+            self.weatherDescriptionLabel.text = "\(weather.weather[0].description)"
             self.temperatureLabel.text = "\(weather.main.temp)"
             self.windSpeedLabel.text = "\(self.weatherTranslate.windSpeedConvert(from:weather.wind.speed))"
             self.sunriseHourLabel.text = "\(self.weatherTranslate.sunHourConvert(for: weather.sys.sunrise))"
