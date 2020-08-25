@@ -9,22 +9,26 @@
 import UIKit
 
 class TranslationViewController: UIViewController {
+
+    //MARK: Proprieties
+
     var alertCollection = GTAlertCollection()
     var detectedLanguage = ""
     var desiredLanguage = ""
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        alertCollection = GTAlertCollection(withHostViewController: self)
-        desiredLanguage = "fr"
-        // Do any additional setup after loading the view.
-    }
     
     @IBOutlet weak var textToTranslateView: UITextView!
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var translatedTextView: UITextView!
     @IBOutlet weak var changeLanguageSegmentedButton: UISegmentedControl!
+
+    override func viewDidLoad() {
+           super.viewDidLoad()
+           alertCollection = GTAlertCollection(withHostViewController: self)
+           desiredLanguage = "fr"
+           // Do any additional setup after loading the view.
+       }
+
+    //MARK: Methodes
 
     @IBAction func tappedChangeLanguageButton(_ sender: Any) {
         if changeLanguageSegmentedButton.selectedSegmentIndex == 0 {
@@ -40,7 +44,7 @@ class TranslationViewController: UIViewController {
 
     @IBAction func tappedTranslateButton(_ sender: Any) {
         guard textToTranslateView.text != "" else { return missingArgumentAlerte() }
-        guard detectedLanguage != desiredLanguage else {return sameLanguageAlerte() }
+        guard detectedLanguage != desiredLanguage else { return sameLanguageAlerte() }
         translate()
     }
 
@@ -104,7 +108,10 @@ class TranslationViewController: UIViewController {
         }
         translatedTextView.text = "\(result)"
     }
+}
 
+//MARK: Alerte
+extension TranslationViewController {
 
     private func missingArgumentAlerte() {
         let alerte = UIAlertController(title: "Erreur", message: "Entrez une expression correcte", preferredStyle: .alert)
@@ -141,6 +148,8 @@ class TranslationViewController: UIViewController {
         self.present(alerte,animated: true, completion: nil)
     }
 }
+
+//MARK: Keyboard
 extension TranslationViewController {
 
     @IBAction func dismissKeyboard(_ sender: Any) {

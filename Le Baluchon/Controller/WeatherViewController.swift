@@ -10,6 +10,8 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
+    //MARK: Proprieties
+
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var validateButton: UIButton!
     
@@ -24,7 +26,9 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var humidityLevelLabel: UILabel!
     
     private var weatherTranslate = WeatherTranslate()
-    
+
+    //MARK: Methodes
+
     override func viewDidLoad() {
         super.viewDidLoad()
         toggleActivityIndicator(shown: false)
@@ -58,10 +62,7 @@ class WeatherViewController: UIViewController {
                 print("error weather image")
                 return self.connectionAlerte()
             }
-            
-            
-            
-            // weather image à intégr
+
             self.weatherImageView.image = UIImage.init(data: weatherImage.weatherImage)
             self.weatherDescriptionLabel.text = "\(weather.weather[0].description)"
             self.temperatureLabel.text = "\(weather.main.temp)"
