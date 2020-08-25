@@ -28,6 +28,8 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         toggleActivityIndicator(shown: false)
+        searchWeather(for: "Erquy")
+
         // Do any additional setup after loading the view.
     }
     
@@ -35,12 +37,11 @@ class WeatherViewController: UIViewController {
         guard cityTextField.text != "" && cityTextField.text != nil else {
             return missingArgumentAlerte()
         }
-        
-        searchWeather()
+        searchWeather(for: cityTextField.text!)
     }
     
-    private func searchWeather(){
-        WeatherService.shared.getweather(for: cityTextField.text!) { (success, weather, weatherImage, weatherError, weatherStatusCodeError)   in
+    private func searchWeather(for city: String){
+        WeatherService.shared.getweather(for: city) { (success, weather, weatherImage, weatherError, weatherStatusCodeError)   in
             guard success else {
                 if let weatherStatusCodeError = weatherStatusCodeError {
                     let errorText = weatherStatusCodeError.message
