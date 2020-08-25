@@ -34,14 +34,14 @@ class CurrencyRateService {
         task = currencyRateSession.dataTask(with: request.url!) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
-                    callback(false, nil, .dataError, nil)
+                    callback(false, nil, nil, .dataError)
                     return}
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     let responseStatusCodeError = try?JSONDecoder().decode(CurrencyStatusCodeError.self, from: data)
-                    callback(false, nil, .responseError, responseStatusCodeError)
+                    callback(false, nil, responseStatusCodeError, .responseError)
                     return}
                 guard let currency = try? JSONDecoder().decode(CurrencyRate.self, from: data) else {
-                    callback(false, nil, .currencyError, nil)
+                    callback(false, nil, nil, .currencyError)
                     return
                 }
                 callback(true, currency, nil, nil)
