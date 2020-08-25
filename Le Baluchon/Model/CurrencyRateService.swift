@@ -27,7 +27,7 @@ class CurrencyRateService {
         self.currencyRateSession = currencyRateSession
     }
 
-    func getCurrencyRate(callback: @escaping (Bool, CurrencyRate?, CurrencyRateError?, CurrencyError?) -> Void) {
+    func getCurrencyRate(callback: @escaping (Bool, CurrencyRate?, CurrencyStatusCodeError?, CurrencyRateError?) -> Void) {
         let request = createCurrencyRateRequest()
 
         task?.cancel()
@@ -37,7 +37,7 @@ class CurrencyRateService {
                     callback(false, nil, .dataError, nil)
                     return}
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    let responseStatusCodeError = try?JSONDecoder().decode(CurrencyError.self, from: data)
+                    let responseStatusCodeError = try?JSONDecoder().decode(CurrencyStatusCodeError.self, from: data)
                     callback(false, nil, .responseError, responseStatusCodeError)
                     return}
                 guard let currency = try? JSONDecoder().decode(CurrencyRate.self, from: data) else {

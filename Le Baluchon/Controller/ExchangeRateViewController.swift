@@ -59,7 +59,7 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPicke
 
     private func searchRate(){
         toggleActivityIndicator(shown: true)
-        CurrencyRateService.shared.getCurrencyRate { (success, currency, currencyError, currencyStatusCodeError  )  in
+        CurrencyRateService.shared.getCurrencyRate { (success, currency, currencyStatusCodeError, currencyError  )  in
             self .toggleActivityIndicator(shown: false)
             guard success, let currency = currency else {
                     return self.connectionAlerte() 

@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct CurrencyError: Codable {
+struct CurrencyStatusCodeError: Codable {
     var success: Bool
     var currencyError : ErrorResponse
 
 }
-    struct ErrorResponse: Codable {
-        var code: Int
-        var type: String
-        var info: String
+struct ErrorResponse: Codable {
+    var code: Int
+    var type: String
+    var info: String
 }
