@@ -32,6 +32,7 @@
 		5AC894FE24EFF2B00074D8B9 /* WeatherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC894FD24EFF2B00074D8B9 /* WeatherTest.swift */; };
 		5AE2DFD524F3B60C009015C3 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2DFD424F3B60C009015C3 /* FakeResponseData.swift */; };
 		5AE2DFDB24F3F32F009015C3 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2DFDA24F3F32F009015C3 /* URLSessionFake.swift */; };
+		5AE2DFDD24F5A777009015C3 /* AlertesCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE2DFDC24F5A777009015C3 /* AlertesCollections.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		5AC894FD24EFF2B00074D8B9 /* WeatherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTest.swift; sourceTree = "<group>"; };
 		5AE2DFD424F3B60C009015C3 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		5AE2DFDA24F3F32F009015C3 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
+		5AE2DFDC24F5A777009015C3 /* AlertesCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertesCollections.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				5A0107B124B5F711008B9063 /* TranslationViewController.swift */,
 				5A0107B524B5F769008B9063 /* WelcomViewController.swift */,
 				5A7EA30324C7355900CCCA55 /* WeatherViewController.swift */,
+				5AE2DFDC24F5A777009015C3 /* AlertesCollections.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			files = (
 				5AADD8CB24BCA2EB00227CDC /* CurrencyRateService.swift in Sources */,
 				5A0107B224B5F711008B9063 /* TranslationViewController.swift in Sources */,
+				5AE2DFDD24F5A777009015C3 /* AlertesCollections.swift in Sources */,
 				5AADD8D124BDD00300227CDC /* WeatherService.swift in Sources */,
 				5A7EA30424C7355900CCCA55 /* WeatherViewController.swift in Sources */,
 				5A0107BC24B5F7CD008B9063 /* Translation.swift in Sources */,

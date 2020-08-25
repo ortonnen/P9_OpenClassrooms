@@ -13,6 +13,7 @@ struct CurrencyStatusCodeError: Codable {
     var currencyError : ErrorResponse
 
 }
+
 struct ErrorResponse: Codable {
     var code: Int
     var type: String
