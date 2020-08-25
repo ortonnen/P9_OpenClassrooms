@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d2u-Ea-tWc">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +19,7 @@
                                 <rect key="frame" x="16" y="313" width="288" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gf8-j9-o6T">
-                                        <rect key="frame" x="0.0" y="0.0" width="37" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="39.5" height="30"/>
                                         <color key="backgroundColor" red="0.80854207280000001" green="0.85754173990000004" blue="0.64819270370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Langue">
                                             <color key="titleColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -31,12 +30,12 @@
                                         </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xK5-hK-Seo">
-                                        <rect key="frame" x="42" y="0.0" width="246" height="31"/>
+                                        <rect key="frame" x="44.5" y="0.0" width="243.5" height="31"/>
                                         <color key="backgroundColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <segments>
                                             <segment title="Français"/>
                                             <segment title="English"/>
-                                            <segment title="Deuetsche"/>
+                                            <segment title="Deutsche"/>
                                             <segment title="Español"/>
                                         </segments>
                                         <color key="tintColor" red="0.69333875180000004" green="0.80460554360000003" blue="0.84558153150000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,16 +49,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="X7b-eO-XB9" userLabel="Translate Text StackView">
                                 <rect key="frame" x="16" y="44" width="288" height="265"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hsg-zj-Uju">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hsg-zj-Uju">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="130.5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="0.19426904965753425" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" keyboardKey="YES"/>
+                                        </accessibility>
+                                        <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4C7-Ca-5RE">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4C7-Ca-5RE">
                                         <rect key="frame" x="0.0" y="134.5" width="288" height="130.5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -109,6 +111,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n0f-P6-dLA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="DoF-DT-cpZ">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="tbb-JZ-R3K" id="YVh-ru-EPU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1006.875" y="-846.25"/>
         </scene>
@@ -156,7 +163,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.3208226562" green="0.28123190999999997" blue="0.28027769920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES" textContentType="address-level2"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" enablesReturnKeyAutomatically="YES" textContentType="address-level2"/>
                                 <connections>
                                     <action selector="dismissKeyboard:" destination="51z-FJ-ITd" eventType="editingDidEndOnExit" id="HLM-UL-NSh"/>
                                 </connections>

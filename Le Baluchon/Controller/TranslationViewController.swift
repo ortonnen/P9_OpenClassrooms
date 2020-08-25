@@ -17,6 +17,7 @@ class TranslationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         alertCollection = GTAlertCollection(withHostViewController: self)
+        desiredLanguage = "fr"
         // Do any additional setup after loading the view.
     }
     
@@ -25,16 +26,6 @@ class TranslationViewController: UIViewController {
     @IBOutlet weak var translatedTextView: UITextView!
     @IBOutlet weak var changeLanguageSegmentedButton: UISegmentedControl!
 
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-
     @IBAction func tappedChangeLanguageButton(_ sender: Any) {
         if changeLanguageSegmentedButton.selectedSegmentIndex == 0 {
             desiredLanguage = "fr"
@@ -42,7 +33,7 @@ class TranslationViewController: UIViewController {
             desiredLanguage = "en"
         } else if changeLanguageSegmentedButton.selectedSegmentIndex == 2 {
             desiredLanguage = "de"
-        } else {
+        } else if changeLanguageSegmentedButton.selectedSegmentIndex == 3 {
             desiredLanguage = "es"
         }
     }
@@ -59,6 +50,7 @@ class TranslationViewController: UIViewController {
         alertCollection.presentActivityAlert(withTitle: "Détection de la langue", message: "Merci de patienter...", activityIndicatorColor: UIColor.blue, showLargeIndicator: false) { (presented) in
             if presented {
                 self.detectLang()
+                self.detectLanguageAlerte(self.detectedLanguage)
             }
         }
         detectLang()
@@ -75,13 +67,11 @@ class TranslationViewController: UIViewController {
                     return self.statusCodeAlerte(with: errorText)
                 } else {
                     self.alertCollection.dismissAlert(completion: nil)
-                    print("success")
                     return self.connectionAlerte()
                 }
             }
             guard let detectLanguage = detectLanguage else {
                 self.alertCollection.dismissAlert(completion: nil)
-                print("detect language")
                 return self.alertCollection.presentSingleButtonAlert(withTitle: "Detection de la Langue", message: "Oups! Il semble que quelque chose s'est mal passé.", buttonTitle: "OK", actionHandler: {})
 
             }
@@ -98,17 +88,14 @@ class TranslationViewController: UIViewController {
                     let errorText = translationStatusCodeError.message
                     return self.statusCodeAlerte(with: errorText)
                 } else {
-                    print("success")
                     return self.connectionAlerte()
                 }
             }
             guard let translate = translate else {
-                print("translate")
                 return self.connectionAlerte() }
             self.detectLang()
             self.updateResultTextView(with: translate.data.translations[0].translatedText)
         }
-
     }
 
     private func updateResultTextView(with result: String) {
