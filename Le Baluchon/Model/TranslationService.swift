@@ -20,7 +20,6 @@ enum TranslationError: Error {
 enum TranslationMode {
     case detectLanguage
     case translate
-    case supportedLanguages
 
     //Methodes
     func getURL() -> URL {
@@ -32,25 +31,15 @@ enum TranslationMode {
 
         case .translate:
             urlString = URL(string:"https://translation.googleapis.com/language/translate/v2")!
-
-        case .supportedLanguages:
-            urlString = URL(string:"https://translation.googleapis.com/language/translate/v2/languages")!
         }
-
         return urlString!
     }
 
-    func getHTTPMethod() -> String {
-        if self == .supportedLanguages {
-            return "GET"
-        } else {
-            return "POST"
-        }
-    }
 }
 
 //MARK: Translation Services
 class TranslationService {
+
     static var shared = TranslationService()
     private init() {}
 
@@ -65,7 +54,7 @@ class TranslationService {
     init(translationSession: URLSession){
         self.translationSession = translationSession
     }
-
+    // Methode
     private func createTranslationRequest(for translationMode: TranslationMode, use parameters:[String: String]) -> URLComponents {
         var component = URLComponents(url: translationMode.getURL(), resolvingAgainstBaseURL: true)
 
@@ -74,12 +63,12 @@ class TranslationService {
         for (key, value) in parameters {
             component?.queryItems?.append(URLQueryItem(name: key, value: value))
         }
-
         return component!
     }
 }
 //MARK: Translate
 extension TranslationService {
+
     func getTranslate(from originalLangue: String, to desiredLanguage: String, for text: String, callback: @escaping (Bool, Translate?, TranslationError?, TranslationStatusCodeError?)->Void){
 
         var parameters = [String: String]()
@@ -94,20 +83,15 @@ extension TranslationService {
             DispatchQueue.main.async {
 
                 guard let data = data, error == nil else {
-                    print("data")
                     callback(false, nil, .dataError, nil)
                     return }
 
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    print("response")
                     let responseStatusCodeError = try? JSONDecoder().decode(TranslationStatusCodeError.self, from: data)
-                    print(responseStatusCodeError?.message ?? "not here" )
-                    print(responseStatusCodeError?.code ?? 999)
                     callback(false, nil, .translationError, responseStatusCodeError)
                     return
                 }
                 guard let translation = try? JSONDecoder().decode(Translate.self, from: data) else {
-                    print("translation")
                     callback(false, nil, .translationError, nil)
                     return
                 }
@@ -155,8 +139,4 @@ extension TranslationService {
         }
         task?.resume()
     }
-
-
-
-
 }

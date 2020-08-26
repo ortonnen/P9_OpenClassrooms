@@ -56,7 +56,7 @@ struct WeatherTranslate {
         let sunDate = Date(timeIntervalSince1970: TimeInterval(hour))
         let formatter = DateFormatter()
         formatter.dateStyle = .none
-        formatter.timeStyle = .medium
+        formatter.timeStyle = .short
 
         let formattedTime = formatter.string(from: sunDate)
 
