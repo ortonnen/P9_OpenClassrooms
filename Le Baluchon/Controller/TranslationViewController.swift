@@ -12,7 +12,6 @@ class TranslationViewController: UIViewController {
 
     //MARK: Proprieties
 
-    var alertCollection = GTAlertCollection()
     var detectedLanguage = ""
     var desiredLanguage = ""
     
@@ -21,14 +20,13 @@ class TranslationViewController: UIViewController {
     @IBOutlet weak var translatedTextView: UITextView!
     @IBOutlet weak var changeLanguageSegmentedButton: UISegmentedControl!
 
-    override func viewDidLoad() {
-           super.viewDidLoad()
-           alertCollection = GTAlertCollection(withHostViewController: self)
-           desiredLanguage = "fr"
-           // Do any additional setup after loading the view.
-       }
-
     //MARK: Methodes
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        desiredLanguage = "fr"
+        // Do any additional setup after loading the view.
+    }
 
     @IBAction func tappedChangeLanguageButton(_ sender: Any) {
         if changeLanguageSegmentedButton.selectedSegmentIndex == 0 {
@@ -51,39 +49,37 @@ class TranslationViewController: UIViewController {
     @IBAction func detectLanguage(_ sender: Any) {
         guard textToTranslateView.text != "" else {
             return missingArgumentAlerte() }
-        alertCollection.presentActivityAlert(withTitle: "Détection de la langue", message: "Merci de patienter...", activityIndicatorColor: UIColor.blue, showLargeIndicator: false) { (presented) in
-            if presented {
-                self.detectLang()
-                self.detectLanguageAlerte(self.detectedLanguage)
-            }
-        }
         detectLang()
         detectLanguageAlerte(detectedLanguage)
     }
 
 
     private func detectLang() {
+        let acticityIndicatorAlert = presentActivityAlert()
         TranslationService.shared.getDetectLanguage(for: textToTranslateView.text!) { (success, detectLanguage, translationError, translationStatusCodeError) in
+
+            self.present(acticityIndicatorAlert, animated: true, completion: nil)
+
             guard success else {
-                self.alertCollection.dismissAlert(completion: nil)
+                acticityIndicatorAlert.dismiss(animated: true, completion: nil)
+
                 if let translationStatusCodeError = translationStatusCodeError {
                     let errorText = translationStatusCodeError.message
                     return self.statusCodeAlerte(with: errorText)
                 } else {
-                    self.alertCollection.dismissAlert(completion: nil)
+                    acticityIndicatorAlert.dismiss(animated: true, completion: nil)
                     return self.connectionAlerte()
                 }
             }
             guard let detectLanguage = detectLanguage else {
-                self.alertCollection.dismissAlert(completion: nil)
-                return self.alertCollection.presentSingleButtonAlert(withTitle: "Detection de la Langue", message: "Oups! Il semble que quelque chose s'est mal passé.", buttonTitle: "OK", actionHandler: {})
+                acticityIndicatorAlert.dismiss(animated: true, completion: nil)
+                return self.languageDetectionErrorAlerte()
 
             }
-            self.alertCollection.dismissAlert(completion: nil)
+            acticityIndicatorAlert.dismiss(animated: true, completion: nil)
             self.detectedLanguage = detectLanguage.data.detections[0][0].language
         }
     }
-
 
     private func translate() {
         TranslationService.shared.getTranslate(from: detectedLanguage, to: desiredLanguage ,for: textToTranslateView.text!) { (success, translate, translationError, translationStatusCodeError) in
@@ -113,13 +109,15 @@ class TranslationViewController: UIViewController {
 //MARK: Alerte
 extension TranslationViewController {
 
+    ///Alert if the text field is empty
     private func missingArgumentAlerte() {
-        let alerte = UIAlertController(title: "Erreur", message: "Entrez une expression correcte", preferredStyle: .alert)
+        let alerte = UIAlertController(title: "Erreur", message: "Saisissez une expression à traduire.", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alerte.addAction(alerteAction)
         self.present(alerte,animated: true, completion: nil)
     }
-    
+
+    ///Alert if the error code can be recovered
     private func statusCodeAlerte(with text: String) {
         let alerte = UIAlertController(title: "Erreur", message: "\(text)", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -127,6 +125,7 @@ extension TranslationViewController {
         self.present(alerte,animated: true, completion: nil)
     }
 
+    ///Alert if there is a connection problem
     private func connectionAlerte() {
         let alerte = UIAlertController(title: "Erreur", message: "un problème est survenue merci de rééssayer plus tard", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -134,19 +133,44 @@ extension TranslationViewController {
         self.present(alerte,animated: true, completion: nil)
     }
 
+    /// Alert if we try to translate in the same language
     private func sameLanguageAlerte() {
-        let alerte = UIAlertController(title: "Erreur", message: "vous ne pouvez traduire dans la même langues, essayez de selectionner une autre langue", preferredStyle: .alert)
+        let alerte = UIAlertController(title: "Erreur", message: "Vous ne pouvez traduire dans la même langue, essayez de selectionner une autre langue.", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alerte.addAction(alerteAction)
         self.present(alerte,animated: true, completion: nil)
     }
 
+    /// Alert to prevent which language has been detected
     private func detectLanguageAlerte(_ language: String) {
         let alerte = UIAlertController(title: "Detection de la Langue", message: "La langue suivante a été détectée: \n \(language)", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alerte.addAction(alerteAction)
         self.present(alerte,animated: true, completion: nil)
     }
+
+    /// Alert if the language detection failed
+    private func languageDetectionErrorAlerte () {
+        let alerte = UIAlertController(title: "Detection de la Langue", message: "Oups! Il semble que quelque chose s'est mal passé.", preferredStyle: .alert)
+        let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alerte.addAction(alerteAction)
+        self.present(alerte,animated: true, completion: nil)
+    }
+
+    /// Activity Indicator Alert to wait for language detection
+    private func presentActivityAlert() -> UIAlertController {
+        let alert = UIAlertController(title: "Détection de la langue", message: "Merci de patienter...\n\n\n", preferredStyle: .alert)
+
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.color = .gray
+        activityIndicator.startAnimating()
+        alert.view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor).isActive = true
+        activityIndicator.bottomAnchor.constraint(equalTo: alert.view.bottomAnchor, constant: -5.0).isActive = true
+        return alert
+    }
+    
 }
 
 //MARK: Keyboard
