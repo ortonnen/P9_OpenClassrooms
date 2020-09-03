@@ -14,7 +14,7 @@ class WeatherViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var validateButton: UIButton!
-    
+
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -33,7 +33,6 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         toggleActivityIndicator(shown: false)
         searchWeather(for: "Erquy")
-
         // Do any additional setup after loading the view.
     }
     
@@ -45,7 +44,7 @@ class WeatherViewController: UIViewController {
     }
     
     private func searchWeather(for city: String){
-        WeatherService.shared.getweather(for: city) { (success, weather, weatherImage, weatherError, weatherStatusCodeError)   in
+        WeatherService.shared.getWeather(for: city) { (success, weather, weatherImage, weatherError, weatherStatusCodeError)   in
             guard success else {
                 if let weatherStatusCodeError = weatherStatusCodeError {
                     let errorText = weatherStatusCodeError.message

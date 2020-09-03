@@ -115,22 +115,17 @@ extension TranslationService {
             DispatchQueue.main.async {
 
                 guard let data = data, error == nil else {
-                    print("data")
                     callback(false, nil, .dataError, nil)
                     return
                 }
 
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    print("response")
                     let responseStatusCodeError = try? JSONDecoder().decode(TranslationStatusCodeError.self, from: data)
-                    print(responseStatusCodeError?.message ?? "not here" )
-                    print(responseStatusCodeError?.code ?? 999)
                     callback(false, nil, .translationError, responseStatusCodeError)
                     return
                 }
 
                 guard let detectLanguage = try? JSONDecoder().decode(DetectLanguage.self, from: data) else {
-                    print("detectLaguage")
                     callback(false, nil, .translationError, nil)
                     return
                 }

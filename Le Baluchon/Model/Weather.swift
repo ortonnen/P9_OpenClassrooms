@@ -12,6 +12,7 @@ struct WeatherImage {
     var weatherImage: Data
 }
 
+
 struct Weather: Codable {
     let name: String
     let weather: [WeatherCondition]
@@ -46,7 +47,6 @@ struct Sys: Codable {
 }
 
 struct WeatherTranslate {
-
 
     func windSpeedConvert(from meterPerSecond: Double) -> Double {
         return meterPerSecond * 3.6
