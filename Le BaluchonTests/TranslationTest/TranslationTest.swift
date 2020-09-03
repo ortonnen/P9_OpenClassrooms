@@ -79,18 +79,18 @@ class TranslationTest: XCTestCase {
     
     func testGetTranslateShouldPostSuccessCallBackIfNoErrorAndCorrectData() {
         
-        let translationService = TranslationService(
-            translationSession: URLSessionFake(data: FakeResponseData.translateCorrectData, response: FakeResponseData.responseOK, error: nil))
+//        let translationService = TranslationService(
+//            translationSession: URLSessionFake(data: FakeResponseData.translateCorrectData, response: FakeResponseData.responseOK, error: nil))
         
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         
-        translationService.getTranslate(from: "fr", to: "en", for: "bonjour") { (success, translate, translationError, translationStatusCodeError) in
+        TranslationService.shared.getTranslate(from: "fr", to: "en", for: "bonjour") { (success, translate, translationError, translationStatusCodeError) in
             
             XCTAssertTrue(success)
             XCTAssertNotNil(translate)
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
+        wait(for: [expectation], timeout: 10)
     }
     
     func testGetDetectedLanguageShouldPostFailedCallback() {
@@ -159,18 +159,17 @@ class TranslationTest: XCTestCase {
     
     func testGetDetectedLanguageShouldPostSuccessCallBackIfNoErrorAndCorrectData() {
         
-        let translationService = TranslationService(
-            translationSession: URLSessionFake(data: FakeResponseData.translateCorrectData, response: FakeResponseData.responseOK, error: nil))
-        
+//        let translationService = TranslationService(
+//            translationSession: URLSessionFake(data: FakeResponseData.translateCorrectData, response: FakeResponseData.responseOK, error: nil))
+//        
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         
-        translationService.getDetectLanguage(for: "Bonjour") { (success, detectLanguage, translationError, translationStatusCodeError) in
-            
+        TranslationService.shared.getDetectLanguage(for: "Bonjour") { (success, detectLanguage, translationError, translationStatusCodeError) in
             XCTAssertTrue(success)
             XCTAssertNotNil(detectLanguage)
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
+        wait(for: [expectation], timeout: 10)
     }
     
 }

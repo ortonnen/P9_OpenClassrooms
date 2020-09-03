@@ -11,6 +11,7 @@ import XCTest
 
 class CurrencyTest: XCTestCase {
     var currencyExchange = CurrencyExchange()
+
     //MARK: CurrencyServicesTest
     func testGetCurrencyRateShouldPostFailedCallback() {
 
@@ -74,17 +75,17 @@ class CurrencyTest: XCTestCase {
 
     func testGetCurrencyRateShouldPostSuccessCallBackIfNoErrorAndCorrectData() {
 
-        let currencyRateService = CurrencyRateService(currencyRateSession: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
+        //        let currencyRateService = CurrencyRateService(currencyRateSession: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
 
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
-        currencyRateService.getCurrencyRate { (success, currencyRate, currencyStatusCodeError, currencyError) in
+        CurrencyRateService.shared.getCurrencyRate { (success, currencyRate, currencyStatusCodeError, currencyError) in
 
             XCTAssertTrue(success)
             XCTAssertNotNil(currencyRate)
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
+        wait(for: [expectation], timeout: 10)
     }
     
     //MARK: CurrencyExchangeTest

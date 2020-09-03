@@ -10,25 +10,26 @@ import Foundation
 
 class FakeResponseData {
     // MARK: - Data
+
     static var currencyCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "Currency", withExtension: "json")!
+        guard let url = bundle.resourceURL else { return Data() }
 
-        return (try? Data(contentsOf: url)) ?? Data()
+        return try? Data(contentsOf: url)
     }
 
     static var translateCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "Translate", withExtension: "json")!
+        guard let url = bundle.resourceURL else { return Data() }
 
-        return (try? Data(contentsOf: url)) ?? Data()
+        return try? Data(contentsOf: url)
     }
 
     static var weatherCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "Weather", withExtension: "json")!
+        guard let url = bundle.resourceURL else { return Data () }
 
-        return (try? Data(contentsOf: url)) ?? Data()
+        return try? Data(contentsOf: url)
     }
 
     static let incorrectData = "error".data(using: .utf8)!
