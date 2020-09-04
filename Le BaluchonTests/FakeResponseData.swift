@@ -13,25 +13,32 @@ class FakeResponseData {
 
     static var currencyCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
-        guard let url = bundle.resourceURL else { return Data() }
+        let url = bundle.url(forResource: "CurrencyRate", withExtension: "json")!
 
-        return try? Data(contentsOf: url)
+        return try! Data(contentsOf: url)
     }
 
     static var translateCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
-        guard let url = bundle.resourceURL else { return Data() }
+        let url = bundle.url(forResource: "Translation", withExtension: "json")!
 
-        return try? Data(contentsOf: url)
+        return try! Data(contentsOf: url)
+    }
+
+    static var detectLanguageCorrectData: Data? {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "DetectedLanguage", withExtension: "json")!
+
+        return try! Data(contentsOf: url)
     }
 
     static var weatherCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
-        guard let url = bundle.resourceURL else { return Data () }
+        let url = bundle.url(forResource: "Weather", withExtension: "json")!
 
-        return try? Data(contentsOf: url)
+        return try! Data(contentsOf: url)
     }
-
+    static let weatherImageData = "image".data(using: .utf8)!
     static let incorrectData = "error".data(using: .utf8)!
 
     // MARK: - Response

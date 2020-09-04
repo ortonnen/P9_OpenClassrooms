@@ -70,22 +70,22 @@ class CurrencyTest: XCTestCase {
             XCTAssertNil(currencyRate)
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.01)
+        wait(for: [expectation], timeout: 0.02)
     }
 
     func testGetCurrencyRateShouldPostSuccessCallBackIfNoErrorAndCorrectData() {
 
-        //        let currencyRateService = CurrencyRateService(currencyRateSession: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
+                let currencyRateService = CurrencyRateService(currencyRateSession: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
 
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
-        CurrencyRateService.shared.getCurrencyRate { (success, currencyRate, currencyStatusCodeError, currencyError) in
+        currencyRateService.getCurrencyRate { (success, currencyRate, currencyStatusCodeError, currencyError) in
 
             XCTAssertTrue(success)
             XCTAssertNotNil(currencyRate)
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: 0.01)
     }
     
     //MARK: CurrencyExchangeTest
