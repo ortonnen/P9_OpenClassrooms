@@ -11,7 +11,7 @@ import UIKit
 
 class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    //MARK: Proprieties
+    //MARK: Properties
     @IBOutlet weak var convertButton: UIButton!
     @IBOutlet weak var convertResultLabel: UILabel!
     @IBOutlet weak var moneyEnterText: UITextField!
@@ -23,6 +23,7 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPicke
     private var amountConvert = String()
     private var currencyExchange = CurrencyExchange()
 
+    /// proprietie for picker view
     var currency: CurrencyRate = CurrencyRate.empty() {
         didSet {
             endingCurrencyPickerView.reloadAllComponents()
@@ -40,6 +41,7 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPicke
         searchRate()
     }
 
+    /// convert money
     @IBAction func tappedConvertButton() {
         guard moneyEnterText.text != "" && moneyEnterText.text != nil else { return missingArgumentAlerte() }
         
@@ -51,23 +53,31 @@ class ExchangeRateViewController: UIViewController, UITextFieldDelegate, UIPicke
         }
     }
 
+    /// calcul for convert money
     private func convert(with rate: Double) {
         amount = Double(moneyEnterText.text!)!
         amountConvert = String(currencyExchange.convertMoney(from: amount, to: rate))
         convertResultLabel.text = amountConvert
     }
 
+    /// call for search all rate in API
     private func searchRate(){
         toggleActivityIndicator(shown: true)
         CurrencyRateService.shared.getCurrencyRate { (success, currency, currencyStatusCodeError, currencyError  )  in
+
             self .toggleActivityIndicator(shown: false)
             guard success, let currency = currency else {
-                    return self.connectionAlerte() 
+                if let currencyStatusCodeError = currencyStatusCodeError {
+                    let errorText = currencyStatusCodeError.currencyError.info
+                    return self.statusCodeAlerte(with: errorText)
+                }
+                return self.connectionAlerte()
             }
             self.currency = currency
         }
     }
 
+    /// activity indicator appear
     private func toggleActivityIndicator(shown: Bool) {
         activityIndicator.isHidden = !shown
         convertButton.isHidden = shown
@@ -80,9 +90,11 @@ extension ExchangeRateViewController {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return currency.rates.count
     }
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         for (index, element) in currency.rates.enumerated() {
             if index == row {
@@ -111,6 +123,7 @@ extension ExchangeRateViewController {
 //MARK: Alerte
 extension ExchangeRateViewController {
 
+    ///alert if money enter text is empty
     private func missingArgumentAlerte() {
         let alerte = UIAlertController(title: "Erreur", message: "Entrez une expression correcte", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -118,6 +131,7 @@ extension ExchangeRateViewController {
         self.present(alerte,animated: true, completion: nil)
     }
 
+    ///Alert if there is a connection problem
     private func connectionAlerte() {
         let alerte = UIAlertController(title: "Erreur", message: "un problème est survenue merci de rééssayer plus tard", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -125,6 +139,7 @@ extension ExchangeRateViewController {
         self.present(alerte,animated: true, completion: nil)
     }
 
+    ///Alert if the error code can be recovered
     private func statusCodeAlerte(with text:String) {
         let alerte = UIAlertController(title: "Erreur", message: "\(text)", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)

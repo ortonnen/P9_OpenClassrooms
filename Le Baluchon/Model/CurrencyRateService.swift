@@ -8,13 +8,17 @@
 
 import Foundation
 
+//MARK: Enum to Currency Error
 enum CurrencyRateError: Error {
     case dataError
     case responseError
     case currencyError
 }
 
+//MARK: Currency Rate Service
 class CurrencyRateService {
+
+    // Properties
     static var shared = CurrencyRateService()
     private init() {}
 
@@ -27,6 +31,15 @@ class CurrencyRateService {
         self.currencyRateSession = currencyRateSession
     }
 
+    //Methodes
+    private func createCurrencyRateRequest() -> URLComponents {
+           var component = URLComponents(url: currencyRateURL, resolvingAgainstBaseURL: true)
+
+           component?.queryItems = [URLQueryItem(name: "access_key", value: "6c7bb1f08a9dedd75e83976470ca57c6")]
+           return component!
+       }
+
+//MARK: Currency rate
     func getCurrencyRate(callback: @escaping (Bool, CurrencyRate?, CurrencyStatusCodeError?, CurrencyRateError?) -> Void) {
         let request = createCurrencyRateRequest()
 
@@ -49,12 +62,4 @@ class CurrencyRateService {
         }
         task?.resume()
     }
-
-    private func createCurrencyRateRequest() -> URLComponents {
-        var component = URLComponents(url: currencyRateURL, resolvingAgainstBaseURL: true)
-
-        component?.queryItems = [URLQueryItem(name: "access_key", value: "6c7bb1f08a9dedd75e83976470ca57c6")]
-        return component!
-    }
-
 }

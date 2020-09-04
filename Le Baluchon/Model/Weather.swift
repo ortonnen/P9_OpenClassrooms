@@ -7,11 +7,10 @@
 //
 
 import Foundation
-
+//MARK: Weather Codable
 struct WeatherImage {
     var weatherImage: Data
 }
-
 
 struct Weather: Codable {
     let name: String
@@ -22,36 +21,44 @@ struct Weather: Codable {
 }
 
 struct WeatherCondition: Codable {
-    var id: Int //(identifiant des condi météo)
-    var main: String //(groupe de parametres météo: pluie, neige, extrème..)
-    var description: String //(conditions météo au sein du groupe)
-    var icon: String //(id icon météo)
+    var id: Int
+    var main: String
+    var description: String
+    var icon: String
 }
 
 struct Temperature: Codable {
 
-    var temp: Double //(temperature mesure par defaut Kelvin/ metrique: celsius)
-    var humidity: Int //(% d'humidité)
+    var temp: Double
+    var humidity: Int
 }
 
 struct Wind: Codable {
 
-    var speed: Double //(vit du vent unit par défaut m/s)
-    var deg: Int //(direction du vent)
+    var speed: Double
+    var deg: Int 
 }
 
 struct Sys: Codable {
     
-    var sunrise: Int //( heure du levé de soleil)
-    var sunset: Int //(heure du coucher du soleil)
+    var sunrise: Int
+    var sunset: Int
 }
 
+//MARK: Status Code Error
+struct WeatherStatusCodeError: Codable {
+    let message: String
+}
+
+//MARK: Weather Conversion
 struct WeatherTranslate {
 
+    ///convert meter per second to kilometer per hour
     func windSpeedConvert(from meterPerSecond: Double) -> Double {
         return meterPerSecond * 3.6
     }
 
+    ///convert hour to format 3:30 PM
     func sunHourConvert(for hour: Int) -> String {
         let sunDate = Date(timeIntervalSince1970: TimeInterval(hour))
         let formatter = DateFormatter()
@@ -63,6 +70,7 @@ struct WeatherTranslate {
         return formattedTime
     }
 
+    /// convert degree to direction
     func convertDegreeToWindDirection(for degrees: Int)-> String {
         var degree: Int
         let directions = ["Nord", "Nord-Est", "Est", "Sud-Est", "Sud", "Sud-Ouest", "Ouest", "Nord-Ouest"];

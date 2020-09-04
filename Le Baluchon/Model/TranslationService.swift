@@ -43,7 +43,7 @@ class TranslationService {
     static var shared = TranslationService()
     private init() {}
 
-    // Proprieties
+    // Properties
     var targetLanguageCode: String?
 
     private let apiKey = "AIzaSyA5JOHp16X8yo1epeghTZg4dQtnLJMC3eU"

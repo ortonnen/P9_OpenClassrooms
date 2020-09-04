@@ -10,7 +10,7 @@ import UIKit
 
 class TranslationViewController: UIViewController {
 
-    //MARK: Proprieties
+    //MARK: Properties
 
     var detectedLanguage = ""
     var desiredLanguage = ""
@@ -29,6 +29,7 @@ class TranslationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    /// segmented button to change the language to translate into
     @IBAction func tappedChangeLanguageButton(_ sender: Any) {
         if changeLanguageSegmentedButton.selectedSegmentIndex == 0 {
             desiredLanguage = "fr"
@@ -41,19 +42,21 @@ class TranslationViewController: UIViewController {
         }
     }
 
+    /// button to translate text
     @IBAction func tappedTranslateButton(_ sender: Any) {
         guard textToTranslateView.text != "" else { return missingArgumentAlerte() }
         detectLang(appear: false, whithTranslation: true)
     }
 
+    /// button to know language written
     @IBAction func detectLanguage(_ sender: Any) {
         guard textToTranslateView.text != "" else {
             return missingArgumentAlerte() }
         detectLang(appear: true, whithTranslation: false)
     }
 
+    /// mehode to detect language and translate after
     private func detectLang(appear alerte: Bool, whithTranslation: Bool) {
-
         let acticityIndicatorAlert = presentActivityAlert()
 
         TranslationService.shared.getDetectLanguage(for: textToTranslateView.text!) { (success, detectLanguage, translationError, translationStatusCodeError) in
@@ -62,7 +65,6 @@ class TranslationViewController: UIViewController {
 
             guard success else {
                 acticityIndicatorAlert.dismiss(animated: true, completion: nil)
-
                 if let translationStatusCodeError = translationStatusCodeError {
                     let errorText = translationStatusCodeError.message
                     return self.statusCodeAlerte(with: errorText)
@@ -71,23 +73,31 @@ class TranslationViewController: UIViewController {
                     return self.connectionAlerte()
                 }
             }
+
             guard let detectLanguage = detectLanguage else {
                 acticityIndicatorAlert.dismiss(animated: true, completion: nil)
                 return self.languageDetectionErrorAlerte()
             }
+
             acticityIndicatorAlert.dismiss(animated: true) {
                 self.detectedLanguage = detectLanguage.data.detections[0][0].language
                 self.detectLanguageAlerte(self.detectedLanguage, appear: alerte)
                 if whithTranslation == true {
-                if self.detectedLanguage != self.desiredLanguage {
-                    self.translate()
-                } else { return self.sameLanguageAlerte() }}
+                    if self.detectedLanguage != self.desiredLanguage {
+                        self.translate()
+                    } else {
+                        return self.sameLanguageAlerte()
+                    }
+                }
             }
         }
     }
 
+    /// methode to translate text
     private func translate() {
+
         TranslationService.shared.getTranslate(from: detectedLanguage, to: desiredLanguage ,for: textToTranslateView.text!) { (success, translate, translationError, translationStatusCodeError) in
+
             guard success else {
                 if let translationStatusCodeError = translationStatusCodeError {
                     let errorText = translationStatusCodeError.message
@@ -96,12 +106,14 @@ class TranslationViewController: UIViewController {
                     return self.connectionAlerte()
                 }
             }
+
             guard let translate = translate else {
                 return self.connectionAlerte() }
             self.updateResultTextView(with: translate.data.translations[0].translatedText)
         }
     }
 
+    /// methode to write translation result in view
     private func updateResultTextView(with result: String) {
         guard textToTranslateView.text.isEmpty == false else {
             return
@@ -164,7 +176,6 @@ extension TranslationViewController {
     }
 
     /// Activity Indicator Alert to wait for language detection
-
     private func presentActivityAlert() -> UIAlertController {
         let alert = UIAlertController(title: "Détection de la langue", message: "Merci de patienter...\n\n\n", preferredStyle: .alert)
 

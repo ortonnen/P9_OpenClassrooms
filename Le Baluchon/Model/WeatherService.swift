@@ -8,18 +8,21 @@
 
 import Foundation
 
+//MARK: Enum Error
 enum WeatherError: Error {
     case dataError
     case responseError
     case weatherError
 }
 
+//MARK: Weather Service
 class WeatherService {
+
+    // Properties
     static var shared = WeatherService()
     private init() {}
     
     private let weatherURL = URL(string: "http://api.openweathermap.org/data/2.5/weather")!
-    private let groupeWeatherURL = URL(string: "http://api.openweathermap.org/data/2.5/group?units=metric&appid=67d96eea07c431d9b5165f53ded7f9fd&id=2988507,5128581&lang=fr")!
 
     private var imageSession = URLSession(configuration: .default)
     private var weatherSession = URLSession(configuration: .default)
@@ -30,6 +33,8 @@ class WeatherService {
         self.imageSession = imageSession
     }
 
+    //Methodes
+    
     private func createWeatherRequest(for city: String) -> URLComponents {
         var component = URLComponents(url: weatherURL, resolvingAgainstBaseURL: true)
         
@@ -40,6 +45,7 @@ class WeatherService {
         return component!
     }
 
+//MARK: Weather
     func getWeather(for city: String, callback: @escaping (Bool, Weather?, WeatherImage?, WeatherError?, WeatherStatusCodeError?) -> Void) {
         let request = createWeatherRequest(for: city)
 
@@ -83,6 +89,7 @@ class WeatherService {
         task?.resume()
     }
 
+//MARK: Image
     func getImage(for weather: String, callback: @escaping (Data?, WeatherError?, WeatherStatusCodeError?) -> Void) {
         let weatherPictureURL = URL(string: "http://openweathermap.org/img/wn/\(weather)@2x.png")!
 

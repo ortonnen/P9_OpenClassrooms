@@ -10,6 +10,7 @@ import UIKit
 
 class WeatherFirstPageViewController: UIViewController {
 
+    //MARK: Properties
     @IBOutlet weak var cityOneLabel: UILabel!
     @IBOutlet weak var cityOneImageView: UIImageView!
     @IBOutlet weak var cityOneWeatherDescriptionLabel: UILabel!
@@ -22,36 +23,41 @@ class WeatherFirstPageViewController: UIViewController {
 
     var firstSearchWeatherIsFinish = false
 
+    //MARK: Methode
     override func viewDidLoad() {
         super.viewDidLoad()
 
         searchWeather()
-
-        // Do any additional setup after loading the view.
     }
 
+    /// method to call weather on API and receive result for view
     private func searchWeather(){
+
         guard cityOneLabel.text != nil && cityOneLabel.text != "" else {
             return connectionAlerte()
         }
 
         WeatherService.shared.getWeather(for: cityOneLabel.text!) { (success, weather, weatherImage, weatherError, weatherStatusCodeError)   in
-                   guard success else {
-                       if let weatherStatusCodeError = weatherStatusCodeError {
-                           let errorText = weatherStatusCodeError.message
-                           return self.statusCodeAlerte(with: errorText)
-                       } else {
-                           print("error success")
-                           return self.connectionAlerte()
-                       }}
-                   guard let weather = weather else {
-                       print("error weather")
-                       return self.connectionAlerte()
-                   }
-                   guard let weatherImage = weatherImage else {
-                       print("error weather image")
-                       return self.connectionAlerte()
-                   }
+
+            guard success else {
+                if let weatherStatusCodeError = weatherStatusCodeError {
+                    let errorText = weatherStatusCodeError.message
+                    return self.statusCodeAlerte(with: errorText)
+                } else {
+                    print("error success")
+                    return self.connectionAlerte()
+                }
+            }
+
+            guard let weather = weather else {
+                print("error weather")
+                return self.connectionAlerte()
+            }
+            
+            guard let weatherImage = weatherImage else {
+                print("error weather image")
+                return self.connectionAlerte()
+            }
 
             self.cityOneTemperatureLabel.text = "\(weather.main.temp) °C"
             self.cityOneWeatherDescriptionLabel.text = "\(weather.weather[0].description)"
@@ -61,35 +67,46 @@ class WeatherFirstPageViewController: UIViewController {
         }
     }
 
+    /// method to call weather on API and receive result for view for to city
     func searchCityTowWeather () {
+
         guard cityTwoLabel.text != nil && cityTwoLabel.text != "" else {
             return connectionAlerte()
         }
+
         WeatherService.shared.getWeather(for: cityTwoLabel.text!) { (success, weather, weatherImage, weatherError, weatherStatusCodeError)   in
-                   guard success else {
-                       if let weatherStatusCodeError = weatherStatusCodeError {
-                           let errorText = weatherStatusCodeError.message
-                           return self.statusCodeAlerte(with: errorText)
-                       } else {
-                           print("error success")
-                           return self.connectionAlerte()
-                       }}
-                   guard let weather = weather else {
-                       print("error weather")
-                       return self.connectionAlerte()
-                   }
-                   guard let weatherImage = weatherImage else {
-                       print("error weather image")
-                       return self.connectionAlerte()
-                   }
+
+            guard success else {
+                if let weatherStatusCodeError = weatherStatusCodeError {
+                    let errorText = weatherStatusCodeError.message
+                    return self.statusCodeAlerte(with: errorText)
+                } else {
+                    print("error success")
+                    return self.connectionAlerte()
+                }
+            }
+
+            guard let weather = weather else {
+                print("error weather")
+                return self.connectionAlerte()
+            }
+
+            guard let weatherImage = weatherImage else {
+                print("error weather image")
+                return self.connectionAlerte()
+            }
 
             self.cityTwoTemperaturLabel.text = "\(weather.main.temp) °C"
             self.cityTwoWeatherDescriptionLabel.text = "\(weather.weather[0].description)"
             self.cityTwoImageView.image = UIImage.init(data: weatherImage.weatherImage)
         }
-
     }
+}
 
+//MARK: Alert
+extension WeatherFirstPageViewController {
+
+    ///Alert if there is a connection problem
     private func connectionAlerte() {
         let alerte = UIAlertController(title: "Erreur", message: "un problème est survenue merci de rééssayer plus tard", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -97,6 +114,7 @@ class WeatherFirstPageViewController: UIViewController {
         self.present(alerte,animated: true, completion: nil)
     }
 
+    ///Alert if the error code can be recovered
     private func statusCodeAlerte(with text: String) {
         let alerte = UIAlertController(title: "Erreur", message: "\(text)", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)

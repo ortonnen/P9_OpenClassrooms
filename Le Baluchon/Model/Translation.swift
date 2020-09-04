@@ -51,7 +51,7 @@ struct ReferencedLanguage: Codable{
     let name: String
 }
 
-//MARK: Error
+//MARK: Status Code Error
 struct TranslationStatusCodeError: Codable {
     let code : Int
     let message: String

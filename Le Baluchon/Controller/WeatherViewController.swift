@@ -10,7 +10,7 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
-    //MARK: Proprieties
+    //MARK: Properties
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var validateButton: UIButton!
@@ -35,16 +35,20 @@ class WeatherViewController: UIViewController {
         searchWeather(for: "Erquy")
         // Do any additional setup after loading the view.
     }
-    
+
+    /// button to search weather for city
     @IBAction func tappedValidateButton() {
         guard cityTextField.text != "" && cityTextField.text != nil else {
             return missingArgumentAlerte()
         }
         searchWeather(for: cityTextField.text!)
     }
-    
-    private func searchWeather(for city: String){
+
+    /// method to call weather on API and receive result for view
+    private func searchWeather(for city: String) {
+
         WeatherService.shared.getWeather(for: city) { (success, weather, weatherImage, weatherError, weatherStatusCodeError)   in
+
             guard success else {
                 if let weatherStatusCodeError = weatherStatusCodeError {
                     let errorText = weatherStatusCodeError.message
@@ -52,11 +56,14 @@ class WeatherViewController: UIViewController {
                 } else {
                     print("error success")
                     return self.connectionAlerte()
-                }}
+                }
+            }
+
             guard let weather = weather else {
                 print("error weather")
                 return self.connectionAlerte()
             }
+
             guard let weatherImage = weatherImage else {
                 print("error weather image")
                 return self.connectionAlerte()
@@ -72,7 +79,8 @@ class WeatherViewController: UIViewController {
             self.humidityLevelLabel.text = "\(weather.main.humidity)"
         }
     }
-    
+
+    /// activity indicator appear
     private func toggleActivityIndicator(shown: Bool) {
         activityIndicator.isHidden = !shown
         validateButton.isHidden = shown
@@ -89,21 +97,24 @@ extension WeatherViewController {
 
 //MARK: Alerte
 extension WeatherViewController {
-    
+
+    /// alert if city is empty
     private func missingArgumentAlerte() {
         let alerte = UIAlertController(title: "Erreur", message: "Entrez une expression correcte", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alerte.addAction(alerteAction)
         self.present(alerte,animated: true, completion: nil)
     }
-    
+
+    ///Alert if there is a connection problem
     private func connectionAlerte() {
         let alerte = UIAlertController(title: "Erreur", message: "un problème est survenue merci de rééssayer plus tard", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alerte.addAction(alerteAction)
         self.present(alerte,animated: true, completion: nil)
     }
-    
+
+    ///Alert if the error code can be recovered
     private func statusCodeAlerte(with text: String) {
         let alerte = UIAlertController(title: "Erreur", message: "\(text)", preferredStyle: .alert)
         let alerteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)

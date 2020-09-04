@@ -264,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KQV-Pj-lW5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006.875" y="745"/>
+            <point key="canvasLocation" x="1007" y="745"/>
         </scene>
         <!--météo-->
         <scene sceneID="5xu-uM-gJX">
@@ -550,7 +550,7 @@ HumidityLevel StackView</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1806" y="745"/>
+            <point key="canvasLocation" x="1868" y="745"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GYZ-6A-PjP">
