@@ -43,20 +43,18 @@ class TranslationViewController: UIViewController {
 
     @IBAction func tappedTranslateButton(_ sender: Any) {
         guard textToTranslateView.text != "" else { return missingArgumentAlerte() }
-        guard detectedLanguage != desiredLanguage else { return sameLanguageAlerte() }
-        translate()
+        detectLang(appear: false, whithTranslation: true)
     }
 
     @IBAction func detectLanguage(_ sender: Any) {
         guard textToTranslateView.text != "" else {
             return missingArgumentAlerte() }
-        detectLang(appear: true)
+        detectLang(appear: true, whithTranslation: false)
     }
 
-    private func detectLang(appear alerte: Bool) {
+    private func detectLang(appear alerte: Bool, whithTranslation: Bool) {
 
         let acticityIndicatorAlert = presentActivityAlert()
-
 
         TranslationService.shared.getDetectLanguage(for: textToTranslateView.text!) { (success, detectLanguage, translationError, translationStatusCodeError) in
 
@@ -76,11 +74,14 @@ class TranslationViewController: UIViewController {
             guard let detectLanguage = detectLanguage else {
                 acticityIndicatorAlert.dismiss(animated: true, completion: nil)
                 return self.languageDetectionErrorAlerte()
-
             }
             acticityIndicatorAlert.dismiss(animated: true) {
                 self.detectedLanguage = detectLanguage.data.detections[0][0].language
                 self.detectLanguageAlerte(self.detectedLanguage, appear: alerte)
+                if whithTranslation == true {
+                if self.detectedLanguage != self.desiredLanguage {
+                    self.translate()
+                } else { return self.sameLanguageAlerte() }}
             }
         }
     }
@@ -97,7 +98,6 @@ class TranslationViewController: UIViewController {
             }
             guard let translate = translate else {
                 return self.connectionAlerte() }
-            self.detectLang(appear: false)
             self.updateResultTextView(with: translate.data.translations[0].translatedText)
         }
     }
