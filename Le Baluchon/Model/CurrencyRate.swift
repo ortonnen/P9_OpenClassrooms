@@ -21,7 +21,6 @@ struct CurrencyRate: Codable {
 struct CurrencyStatusCodeError: Codable {
     var success: Bool
     var currencyError : ErrorResponse
-
 }
 
 struct ErrorResponse: Codable {

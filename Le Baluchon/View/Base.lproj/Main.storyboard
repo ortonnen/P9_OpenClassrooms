@@ -120,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="1006.875" y="-846.25"/>
         </scene>
-        <!--Météo-->
+        <!--WeatherFirstPageViewController-->
         <scene sceneID="EKw-ge-AaN">
             <objects>
-                <viewController id="RX2-gB-N0r" customClass="WeatherFirstPageViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RX2-gB-N0r" userLabel="WeatherFirstPageViewController" customClass="WeatherFirstPageViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gFa-xn-dlf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,10 +266,10 @@
             </objects>
             <point key="canvasLocation" x="1007" y="745"/>
         </scene>
-        <!--météo-->
+        <!--WeatherViewController-->
         <scene sceneID="5xu-uM-gJX">
             <objects>
-                <viewController storyboardIdentifier="sdFirstWeatherView" id="Q21-an-N8Q" customClass="WeatherViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sdFirstWeatherView" id="Q21-an-N8Q" userLabel="WeatherViewController" customClass="WeatherViewController" customModule="Le_Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ebl-b5-xAu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

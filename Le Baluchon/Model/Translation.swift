@@ -36,21 +36,6 @@ struct Detection: Codable {
     let language: String
 }
 
-
-//MARK: Supported Languages
-struct SupportedLanguages: Codable {
-    let data: Languages
-}
-
-struct Languages: Codable {
-    let languages: [ReferencedLanguage]
-}
-
-struct ReferencedLanguage: Codable{
-    let language: String
-    let name: String
-}
-
 //MARK: Status Code Error
 struct TranslationStatusCodeError: Codable {
     let code : Int
