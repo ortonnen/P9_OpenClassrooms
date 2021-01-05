@@ -46,7 +46,7 @@ class TranslationService {
     // Properties
     var targetLanguageCode: String?
 
-    private let apiKey = "AIzaSyA5JOHp16X8yo1epeghTZg4dQtnLJMC3eU"
+    private let apiKey = "ApiKey"
 
     private var translationSession = URLSession(configuration: .default)
     private var task: URLSessionDataTask?

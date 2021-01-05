@@ -35,7 +35,7 @@ class CurrencyRateService {
     private func createCurrencyRateRequest() -> URLComponents {
            var component = URLComponents(url: currencyRateURL, resolvingAgainstBaseURL: true)
 
-           component?.queryItems = [URLQueryItem(name: "access_key", value: "6c7bb1f08a9dedd75e83976470ca57c6")]
+           component?.queryItems = [URLQueryItem(name: "access_key", value: "ApiKey")]
            return component!
        }
 
